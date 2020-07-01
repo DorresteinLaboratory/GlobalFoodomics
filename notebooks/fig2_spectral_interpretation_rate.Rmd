@@ -1,0 +1,515 @@
+---
+title: "Global FoodOmics reference sample interpretation"
+authors: Julia M. Gauglitz, Candace Williams
+output: html_document
+---
+
+#########################################
+Figure 2 results and figure generation
+#########################################
+
+Generation of results from molecular networking output.
+Input data - load one dataframe at a time and run notebook cells. Will generate values in-line, which were transferred to a data table manually.
+```{r}
+#Read in GNPS output file "View All Clusters With IDs" (.tsv)
+
+GNPS_network_data <- read.delim(file = "../data/Rady CMC (G1) - formulas (G3) - FoodOmics 3500 (no formula) (G4) FDR 0.01/METABOLOMICS-SNETS-V2-df244238-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/ONR Fecal match - ONR Plasma match - ONR Food - FoodOmics 3500 (no ONR) FDR 0.01/METABOLOMICS-SNETS-V2-9a90bd12-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/ONR Fecal - ONR Plasma - ONR Food - FoodOmics 3500 (no ONR) FDR 0.01/METABOLOMICS-SNETS-V2-e0bf255b-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/ONR Fecal - ONR Plasma - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01/METABOLOMICS-SNETS-V2-6fe43476-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/MSV000082431 IBD - FoodOmics 3500 FDR 0.1/METABOLOMICS-SNETS-V2-ec08eed8-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/GFOP3500 and MSV000082221 IBD SEED/METABOLOMICS-SNETS-V2-907f2e0b-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/FoodOmics 3500 FDR 0.1/METABOLOMICS-SNETS-V2-d5adba7f-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/Danone - all - FoodOmics 3500 FDR 0.1/METABOLOMICS-SNETS-V2-5cca39e0-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/CIAO Fecal - plasma - ONR food - Foodomics 3500 (no ONR food) FDR 0.01/METABOLOMICS-SNETS-V2-981c9a7d-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/CIAO Fecal - plasma - food - Foodomics 3500 (no CIAO food) FDR 0.01/METABOLOMICS-SNETS-V2-8895b6e3-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/GFOP3500/AGP - FoodOmics 3500 FDR 0.1/METABOLOMICS-SNETS-V2-4884483b-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/GFOP3500/Malawi stool - GFOP3500 overlap/METABOLOMICS-SNETS-V2-831366ba-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/Vaccine response - FoodOmics 3500 FDR 0.01/METABOLOMICS-SNETS-V2-08e9b9e0-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/Vaccine response - breastmilk - FoodOmics 3500 FDR 0.01/METABOLOMICS-SNETS-V2-08de24ed-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/MSV000084908 serum - GFOP3500 FDR 0.01/METABOLOMICS-SNETS-V2-55bef022-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/MSV000082220 SEED Grant IBD Biopsy - GFOP3500/METABOLOMICS-SNETS-V2-a83a279d-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/MSV000079115 IBD Fecal Sample Solvent Test - GFOP3500/METABOLOMICS-SNETS-V2-fad74693-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/MSV000084908 fecal - GFOP3500 FDR 0.01/METABOLOMICS-SNETS-V2-709fbdea-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/MSV000084775 IBD - GFOP3500/METABOLOMICS-SNETS-V2-07f85565-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/MSV000079777 IBD Biobank Stool Samples - GFOP3500/METABOLOMICS-SNETS-V2-a79fbd4c-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/Doty fecal - breastmilk - GFOP3500/METABOLOMICS-SNETS-V2-a7b22246-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/Doty oral - breastmilk - GFOP3500/METABOLOMICS-SNETS-V2-c756a9df-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/Doty skin - breastmilk - GFOP3500/METABOLOMICS-SNETS-V2-4a322e64-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/Vaccine response - breastmilk_all - FoodOmics 3500 FDR 0.01/METABOLOMICS-SNETS-V2-2a51ab24-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/RA fecal - plasma - food - FoodOmics 3500 FDR 0.01 tol 0.01 min 2/METABOLOMICS-SNETS-V2-0794151f-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/AD Plasma - CSF - FoodOmics 3500 FDR 0.01 tol 0.01 2 mincluster/METABOLOMICS-SNETS-V2-aac78e9d-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/Saliva SEED - GFOP3500/METABOLOMICS-SNETS-V2-6dd6e5b1-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/Urine - legume - FoodOmics 3500 (no legumes) FDR 0.01/METABOLOMICS-SNETS-V2-93ba727a-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+GNPS_network_data <- read.delim(file = "../data/40e855040632405b9c9f9e9e9d5c5bfb/METABOLOMICS-SNETS-V2-40e85504-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+#covid-19
+GNPS_network_data <- read.delim(file = "../data/MSV000085505 covid-19 - MSV000085537 - GFOP3500 FDR 0.1 current release/METABOLOMICS-SNETS-V2-9cbcb6b4-view_all_clusters_withID_beta-main.tsv", sep="\t")
+
+```
+
+Create data tables based on group occurrence (for datasets with up to 4 groups)
+Human data was contained in G1 and G2, SSF in G3, and GFOP3500 dataset in G4
+```{r}
+
+G1_occurrence <- GNPS_network_data[GNPS_network_data$G1 > 0, ]
+G2_occurrence <- GNPS_network_data[GNPS_network_data$G2 > 0, ]
+G3_occurrence <- GNPS_network_data[GNPS_network_data$G3 > 0, ]
+G4_occurrence <- GNPS_network_data[GNPS_network_data$G4 > 0, ]
+
+#load packages required for dataset modulation
+library(tidyr)
+library(dplyr)
+
+#fecal-food overlaps
+G1G3_occurrence <- G1_occurrence %>% 
+  mutate(overlap_binary = ifelse(G3 !=0 & G4 ==0, 1, 0))
+
+G1G4_occurrence <- G1_occurrence %>% 
+  mutate(overlap_binary = ifelse(G4 !=0 & G3 ==0, 1, 0))
+
+G1G3G4_occurrence <- G1_occurrence %>% 
+  mutate(overlap_binary = ifelse(G3 !=0 & G4 !=0, 1, 0))
+
+#plasma-food overlaps
+G2G3_occurrence <- G2_occurrence %>% 
+  mutate(overlap_binary = ifelse(G3 !=0 & G4 ==0, 1, 0))
+
+G2G4_occurrence <- G2_occurrence %>% 
+  mutate(overlap_binary = ifelse(G4 !=0 & G3 ==0, 1, 0))
+
+G2G3G4_occurrence <- G2_occurrence %>% 
+  mutate(overlap_binary = ifelse(G3 !=0 & G4 !=0, 1, 0))
+
+```
+
+Calculates 4 values: 
+% annotation in original dataset
+% spectra explained by overlap with G3 and annotations
+% spectra explained by overlap with G4 and annotations (these two numbers do not sum, because some compounds are observed in both G3 and G4)
+% spectra explained by overlap with G3 and G4 -- total interpreted
+# output validated by manual calculation with cytoscape network
+```{r}
+percent_annotation_overlap <- function(occurrence_table_d,G1G3_occurrence,G1G4_occurrence,G1G3G4_occurrence) {
+  num_annot <-sum(occurrence_table_d$LibraryID != "N/A") #number of annotations in occurrence table
+  dataframe_dim <- data.frame(dim(occurrence_table_d)) 
+  total_metabolites <- dataframe_dim[1,1]                               
+  percent <- num_annot / total_metabolites
+ 
+  G3_added_info <- sum(G1G3_occurrence$overlap_binary == 1) -
+  sum(G1G3_occurrence$overlap_binary == 1 & G1G3_occurrence$LibraryID != "N/A")
+  
+  G4_added_info <- sum(G1G4_occurrence$overlap_binary == 1) - 
+  sum(G1G4_occurrence$overlap_binary == 1 & G1G4_occurrence$LibraryID != "N/A")
+    
+  G3G4_added_info <- sum(G1G3G4_occurrence$overlap_binary == 1) - 
+  sum(G1G3G4_occurrence$overlap_binary == 1 & G1G3G4_occurrence$LibraryID != "N/A")
+  
+  total_metabolites_G3inclusive <- num_annot + G3_added_info + G3G4_added_info
+  total_metabolites_G4inclusive <- num_annot + G4_added_info + G3G4_added_info
+  total_metabolites_food_inclusive <- num_annot + G3_added_info + G4_added_info + G3G4_added_info
+  
+  perc_increase_G3 <- (total_metabolites_G3inclusive/total_metabolites)*100
+  perc_increase_G4 <- (total_metabolites_G4inclusive/total_metabolites)*100
+  perc_increase_allfood <- (total_metabolites_food_inclusive/total_metabolites)*100
+  
+  results <- c(percent*100, perc_increase_G3, perc_increase_G4, perc_increase_allfood)
+    return(results)
+}
+
+#how to call the function  
+percent_annotation_overlap(G1_occurrence,G1G3_occurrence,G1G4_occurrence,G1G3G4_occurrence)
+
+```
+
+```{r}
+#how to call the function for plasma  
+percent_annotation_overlap(G2_occurrence,G2G3_occurrence,G2G4_occurrence,G2G3G4_occurrence)
+
+```
+
+
+#for datasets that have G1,G2, G3, G4; where G3 and G4 are both foods that should be taken into consideration
+```{r}
+library(dplyr)
+#subsetting data for Q1 (increased knowledge because in a network with an annotated fecal metabolite)
+G1_occurrence_libY <- G1_occurrence[G1_occurrence$LibraryID != "N/A", ]
+G1_occurrence_libY_unique <-count(G1_occurrence_libY,componentindex) #creates unique list of component indices containing at least one annotation to compare our NAs to
+G1_occurrence_libN <- G1_occurrence[G1_occurrence$LibraryID == "N/A", ]
+
+G1_cluster_libY <- G1_occurrence_libY_unique %>%  #returns nodes that are NA that cluster with annotated nodes (includes self loops b/c script doesn't know they aren't connected all together)
+  inner_join(G1_occurrence_libN, by='componentindex')
+
+#remove single loops and do not include any overlaps between G1 and G3 or G4
+a = subset(G1_cluster_libY, G1_cluster_libY$componentindex!= -1)
+b = subset(a, a$G3==0)
+a = subset(b, b$G4==0)
+```
+
+
+#subsetting the data for Q2a/b -- to increase knowledge because fecal sample clustering in a molecular family with a food metabolite (Q2a: unannotated) or (Q2b: annotated)
+```{r}
+G4_occurrence_no_sloops <- GNPS_network_data[GNPS_network_data$G4 !=0 | GNPS_network_data$G3 !=0, ]
+G4_occurrence_no_sloops <- G4_occurrence_no_sloops[G4_occurrence_no_sloops$componentindex != -1, ]
+
+G4_occurrence_no_sloops_unannotated <- G4_occurrence_no_sloops[G4_occurrence_no_sloops$LibraryID == 'N/A', ]
+G4_occurrence_no_sloops_annotated <- G4_occurrence_no_sloops[G4_occurrence_no_sloops$LibraryID != 'N/A', ]
+
+#Q2a input G4 to inner_join
+G4_occurrence_no_sloops_unannotated_unique <-count(G4_occurrence_no_sloops_unannotated,componentindex) #creates unique list of component indices containing at least one annotation to compare our NAs to
+
+#Q2b input G4 to inner_join
+G4_occurrence_no_sloops_annotated_unique <-count(G4_occurrence_no_sloops_annotated,componentindex) #creates unique list of component indices containing at least one annotation to compare our NAs to
+
+#Q2a/b input G1 to inner_join
+G1_occurrence_no_sloops <- GNPS_network_data[GNPS_network_data$G1 != 0 & GNPS_network_data$componentindex != -1, ]
+
+#inner_join to get the list of component_indeces where G1 and G3 or G4 are in the same molecular family; self loops already removed
+
+Q2a <- G1_occurrence_no_sloops %>%
+  inner_join(G4_occurrence_no_sloops_unannotated_unique, by='componentindex')
+
+#will need to remove the ones present in G1 and G4
+Q2a_no_G1G4 <- Q2a[Q2a$G3 == 0, ]
+Q2a_no_G1G4 <- Q2a_no_G1G4[Q2a_no_G1G4$G4 == 0, ]
+
+Q2b <- G1_occurrence_no_sloops %>%
+  inner_join(G4_occurrence_no_sloops_annotated_unique, by='componentindex')
+
+#will need to remove the ones present in G1 and G4
+Q2b_no_G1G4 <- Q2b[Q2b$G3 == 0, ]
+Q2b_no_G1G4 <- Q2b_no_G1G4[Q2b_no_G1G4$G4 == 0, ]
+
+```
+
+#script for calculating the percent increase in information gained from Q1 and Q2a/b - the total is from networking
+Question 1: calculating percent annotation by the increase of unnannoted compounds found only in G1 that have new information because they network with an annotated compound -- found in G4 (could be an annotated G1G4 molecule or a G4 molecule)
+Question 2: additional info because in the same cluster
+```{r}
+
+percent_annotation <- function(occurrence_table,new_annotations) {
+  no_annot_cluster <- data.frame(dim(new_annotations))
+  no_annot_cluster <- no_annot_cluster[1,1]
+  
+  dataframe_dim <- data.frame(dim(occurrence_table)) 
+  total_metabolites <- dataframe_dim[1,1]                               
+  percent <- no_annot_cluster / total_metabolites
+  percent*100
+}
+
+#how to call the function  
+Q1 <- percent_annotation(G1_occurrence,a)
+
+Q2a <- percent_annotation(G1_occurrence,Q2a_no_G1G4)
+Q2b <- percent_annotation(G1_occurrence,Q2b_no_G1G4)
+#can't just do a straight addition - need to merge tables and take unique ones from 'cluster.index'
+
+total <- rbind(a,Q2a_no_G1G4)
+total2 <- rbind(total,Q2b_no_G1G4)
+Total_added <-count(total2,cluster.index)
+#creates unique list of cluster indices, yielding the total number of cluster with added info, regardless of via method Q1 or Q2a or Q2b
+Q_added <- percent_annotation(G1_occurrence,Total_added)
+  
+```
+
+=================================================================================================================
+
+#For plasma analysis (human data in G2 of networking analysis)
+```{r}
+library(dplyr)
+#subsetting data for Q1 (increased knowledge because in a network with an annotated plasma metabolite)
+G2_occurrence_libY <- G2_occurrence[G2_occurrence$LibraryID != "N/A", ]
+G2_occurrence_libY_unique <-count(G2_occurrence_libY,componentindex) #creates unique list of component indices containing at least one annotation to compare our NAs to
+G2_occurrence_libN <- G2_occurrence[G1_occurrence$LibraryID == "N/A", ]
+head(G2_occurrence_libY)
+G2_cluster_libY <- G2_occurrence_libY_unique %>%  #returns nodes that are NA that cluster with annotated nodes (includes self loops b/c script doesn't know they aren't connected all together)
+  inner_join(G2_occurrence_libN, by='componentindex')
+head(G2_cluster_libY)
+#remove single loops and do not include any overlaps between G2 and G3 or G4
+a = subset(G2_cluster_libY, G2_cluster_libY$componentindex!= -1)
+b = subset(a, a$G3==0)
+a = subset(b, b$G4==0)
+```
+
+#subsetting the data for Q2a/b -- to increase knowledge because fecal sample clustering in a molecular family with a food metabolite (Q2a: unannotated) or (Q2b: annotated)
+```{r}
+G4_occurrence_no_sloops <- GNPS_network_data[GNPS_network_data$G4 !=0 | GNPS_network_data$G3 !=0, ]
+G4_occurrence_no_sloops <- G4_occurrence_no_sloops[G4_occurrence_no_sloops$componentindex != -1, ]
+
+G4_occurrence_no_sloops_unannotated <- G4_occurrence_no_sloops[G4_occurrence_no_sloops$LibraryID == 'N/A', ]
+G4_occurrence_no_sloops_annotated <- G4_occurrence_no_sloops[G4_occurrence_no_sloops$LibraryID != 'N/A', ]
+
+#Q2a input G4 to inner_join
+G4_occurrence_no_sloops_unannotated_unique <-count(G4_occurrence_no_sloops_unannotated,componentindex) #creates unique list of component indices containing at least one annotation to compare our NAs to
+
+#Q2b input G4 to inner_join
+G4_occurrence_no_sloops_annotated_unique <-count(G4_occurrence_no_sloops_annotated,componentindex) #creates unique list of component indices containing at least one annotation to compare our NAs to
+
+#Q2a/b input G1 to inner_join
+G2_occurrence_no_sloops <- GNPS_network_data[GNPS_network_data$G2 != 0 & GNPS_network_data$componentindex != -1, ]
+
+Q2a <- G2_occurrence_no_sloops %>%
+  inner_join(G4_occurrence_no_sloops_unannotated_unique, by='componentindex')
+head(Q2a)
+#will need to remove the ones present in G1 and G4
+Q2a_no_G2G4 <- Q2a[Q2a$G3 == 0, ]
+Q2a_no_G2G4 <- Q2a_no_G2G4[Q2a_no_G2G4$G4 == 0, ]
+head(Q2a_no_G2G4)
+
+Q2b <- G2_occurrence_no_sloops %>%
+  inner_join(G4_occurrence_no_sloops_annotated_unique, by='componentindex')
+head(Q2b)
+#will need to remove the ones present in G1 and G4
+Q2b_no_G2G4 <- Q2b[Q2b$G3 == 0, ]
+Q2b_no_G2G4 <- Q2b_no_G2G4[Q2b_no_G2G4$G4 == 0, ]
+head(Q2b_no_G2G4)
+
+```
+
+#script for calculating the percent increase in information gained from Q1 and Q2a/b
+Question 1: calculating percent annotation by the increase of unnannoted compounds found only in G1 that have new information because they network with an annotated compound -- found in G4 (could be an annotated G1G4 molecule or a G4 molecule)
+a = subset(G1_cluster_libY, componentindex!= -1 & G4==0)
+Question 2: additional info because in the same cluster
+```{r}
+
+percent_annotation <- function(occurrence_table,new_annotations) {
+  no_annot_cluster <- data.frame(dim(new_annotations))
+  no_annot_cluster <- no_annot_cluster[1,1]
+  
+  dataframe_dim <- data.frame(dim(occurrence_table)) 
+  total_metabolites <- dataframe_dim[1,1]                               
+  percent <- no_annot_cluster / total_metabolites
+  percent*100
+}
+
+#how to call the function  
+Q1 <- percent_annotation(G2_occurrence,a)
+
+Q2a <- percent_annotation(G2_occurrence,Q2a_no_G2G4)
+Q2b <- percent_annotation(G2_occurrence,Q2b_no_G2G4)
+#can't just do a straight addition - need to merge tables and take unique ones from 'cluster.index'
+
+total <- rbind(a,Q2a_no_G2G4)
+total2 <- rbind(total,Q2b_no_G2G4)
+Total_added <-count(total2,cluster.index)
+#creates unique list of cluster indices, yielding the total number of cluster with added info, regardless of via method Q1 or Q2a or Q2b
+Q_added <- percent_annotation(G2_occurrence,Total_added)
+  
+```
+
+=================================================================================================================
+
+Input data
+```{r, echo=FALSE}
+data_wTotal <-read.csv("../data/spectral_interpretation_rate.csv", header = TRUE) #, row.names= 1)  
+```
+
+Figure 2 generation
+```{r}
+#library("onewaytests")
+library(rstatix)
+
+#Overall----
+data_human <- data_wTotal[data_wTotal$sample_type_broad == "Human" & data_wTotal$analysis == "yes", ]
+human_welch <-welch.test(explanation_rate~annotation_type, data= data_human) #4.526236e-23 
+games_howell_test(data_human, explanation_rate ~ annotation_type, conf.level = 0.95, detailed = FALSE)
+
+get.bsbp_human <-function(data,factor,colorby){
+  library(beeswarm) 
+  BS <-beeswarm(data~factor,  pch=19, method="swarm", cex=2.0, xlab="",ylab="Interpreted Spectral Rate (%)", labels = c(""), pwcol=(colorby), corral="gutter" , par(cex.lab=1.2, cex.axis=1.5, cex.lab= 1.5, mar=c(5,5,5,2))) 
+   BS
+   boxplot <-boxplot(data~factor, add = T, col="#0000ff22", axes=FALSE, cex=2.0)
+   boxplot
+   legend('topleft', legend = c("CSF","Plasma", "Urine","Stool","Other"), col=c("magenta4", "violetred4", "palevioletred1","darkblue","purple4"), cex=1.35, pch=19,bty='n') 
+  text(5.2, 2.5, paste("P =",signif(human_welch$p.value,2))
+   )
+}
+
+human <- get.bsbp_human(data_human$explanation_rate,data_human$order,as.character(data_human$label_gen))
+
+png("human_analysis_30June20.png", width = 8, height = 7.5, units = 'in', res = 300)
+human_analysis <-get.bsbp_human(data_human$explanation_rate,data_human$order,as.character(data_human$label_gen))
+dev.off()
+
+#Fecal----
+data_fecal <- data_wTotal[data_wTotal$sample_type == "Fecal" & data_wTotal$analysis == "yes", ]
+fecal_welch <-welch.test(explanation_rate~annotation_type, data= data_fecal) #3.051825e-11 
+games_howell_test(data_fecal, explanation_rate ~ annotation_type, conf.level = 0.95, detailed = FALSE)
+
+get.bsbp_fecal <-function(data,factor,colorby){
+  library(beeswarm) 
+  BS <-beeswarm(data~factor,  pch=19, method="swarm", cex=2.0, xlab="",ylab="Interpreted Spectral Rate (%)", labels = c(""), pwcol=(colorby), corral="gutter" , par(cex.lab=1.2, cex.axis=1.5, cex.lab= 1.5, mar=c(5,5,5,2))) 
+   BS
+   boxplot <-boxplot(data~factor, add = T, col="#0000ff22", axes=FALSE, cex=2.0)
+   boxplot
+   legend('topleft', legend = c("Children with Medical Complexity","Malawi legume supplementation","Fermented food consumption","Rotarix vaccine response", "Impact of diet on RA","Sleep deprivation (n=2)","American Gut","Centenarian", "Infant", "IBD (n=6)"), col=c("darkslategray2","royalblue","steelblue2","dodgerblue4","deepskyblue","lightskyblue","blue","dodgerblue1","slategray2","darkblue"), cex=1.35, pch=19,bty='n') 
+    text(5.2, 2.5, paste("P =",signif(fecal_welch$p.value,2)))
+}
+
+fecal <-get.bsbp_fecal(data_fecal$explanation_rate,data_fecal$order,as.character(data_fecal$label))
+
+png("fecal_analysis_30June20_legend.png", width = 8, height = 7.5, units = 'in', res = 300)
+fecal_analysis <-get.bsbp_fecal(data_fecal$explanation_rate,data_fecal$order,as.character(data_fecal$label))
+dev.off()
+
+#Plasma----
+data_plasma <- data_wTotal[data_wTotal$sample_type_specific == "Plasma" & data_wTotal$analysis == "yes", ]
+plasma_welch <- welch.test(explanation_rate~annotation_type, data= data_plasma) 
+games_howell_test(data_plasma, explanation_rate ~ annotation_type, conf.level = 0.95, detailed = FALSE)
+
+
+get.bsbp_plasma <-function(data,factor,colorby){
+  library(beeswarm) 
+  BS <-beeswarm(data~factor,  pch=19, method="swarm", cex=2.0, xlab="",ylab="Interpreted Spectral Rate (%)", labels = c(""), pwcol=(colorby), corral="gutter",par(cex.lab=1.2, cex.axis=1.5, cex.lab= 1.5, mar=c(5,5,5,2)) )
+   BS
+   boxplot <-boxplot(data~factor, add = T, col="#0000ff22", axes=FALSE, cex=2.0)
+   boxplot
+legend('topleft', legend = c("Impact of diet on RA", "Alzheimer's disease","Sleep deprivation (n=2)", "Centenarian",  "Covid-19"), col=c("maroon3","indianred1","violetred4","deeppink1","magenta"), pch=19, bty='n', cex= 1.35) 
+    text(5.2, 3.5, paste("P =",signif(plasma_welch$p.value,2)))
+}
+
+plasma <- get.bsbp_plasma(data_plasma$explanation_rate,data_plasma$order,as.character(data_plasma$label))
+
+png("plasma_analysis_30June20.png", width = 8, height = 7.5, units = 'in', res = 300)
+plasma_analysis <-get.bsbp_plasma(data_plasma$explanation_rate,data_plasma$order,as.character(data_plasma$label))
+dev.off()
+
+
+#Other-----------
+data_other <- data_wTotal[data_wTotal$sample_type_specific == "Human_other" & data_wTotal$analysis == "yes", ]
+other_welch <- welch.test(explanation_rate~annotation_type, data= data_other) #5.67207e-05  
+games_howell_test(data_other, explanation_rate ~ annotation_type, conf.level = 0.95, detailed = FALSE)
+
+get.bsbp_humanother <-function(data,factor,colorby){
+  library(beeswarm) 
+  BS <-beeswarm(data~factor,  pch=19, method="swarm", cex=2.0, xlab="",ylab="Interpreted Spectral Rate (%)", labels = c(""), pwcol=(colorby), corral="gutter",par(cex.lab=1.2, cex.axis=1.5, cex.lab= 1.5, mar=c(5,5,5,2)) )
+   BS
+   boxplot <-boxplot(data~factor, add = T, col="#0000ff22", axes=FALSE, cex=2.0)
+   boxplot
+ legend('topleft', legend = c("Legume supplementation, urine","Alzheimer's disease, CSF","IBD_biopsy, tissue",  "Gout, serum", "Adult, saliva", "Infant, oral", "Infant, skin" ), col=c("palevioletred1","magenta4","darkorchid4","deeppink2","purple","purple4","darkmagenta"), pch=19, bty='n', cex= 1.35) 
+    text(5.2, 5, paste("P =",signif(other_welch$p.value,2)))
+}
+
+other <-get.bsbp_humanother(data_other$explanation_rate,data_other$order,as.character(data_other$label))
+
+png("other_analysis_30June20.png", width = 8, height = 7.5, units = 'in', res = 300)
+not_plasma_analysis <-get.bsbp_humanother(data_other$explanation_rate,data_other$order,as.character(data_other$label))
+dev.off()
+
+
+#SSF----
+data_CIAO <- data.frame(data_wTotal[data_wTotal$dataset_broad == "CIAO",])
+data_ONR <- data_wTotal[data_wTotal$dataset_broad == "ONR",]
+data_SSF <- rbind(data_CIAO,data_ONR)
+
+data_Ciao.ONR_initial <- data_SSF[data_SSF$annotation_type == "initial" & data_SSF$analysis_SSF_test == "yes",]
+data_Ciao.ONR_SSF <- data_SSF[data_SSF$annotation_type == "SSF" & data_SSF$analysis_SSF_test == "yes",]
+
+D_Ciao.ONR_ItoSSF <- data_Ciao.ONR_SSF$explanation_rate - data_Ciao.ONR_initial$explanation_rate 
+D_Ciao.ONR_ItoSSF <- data.frame(D_Ciao.ONR_ItoSSF)
+D_Ciao.ONR_ItoSSF$dataset_broad <-data_Ciao.ONR_SSF$dataset_broad
+D_Ciao.ONR_ItoSSF$sample_specific <-data_Ciao.ONR_SSF$sample_specific  
+D_Ciao.ONR_ItoSSF$analysis <-data_Ciao.ONR_SSF$analysis 
+D_Ciao.ONR_ItoSSF$label <- data_Ciao.ONR_SSF$label
+
+SSF_ttest <- t.test(D_Ciao.ONR_ItoSSF$D_Ciao.ONR_ItoSSF ~ D_Ciao.ONR_ItoSSF$analysis, var.equal = FALSE) # p-value = 0.005124
+
+get.bsbp_SSF <-function(data,factor,colorby){
+  library(beeswarm) 
+  BS <-beeswarm(data~factor,  pch=19, method="swarm", cex=2.0, xlab="",ylab="Interpreted Spectral Rate (%), Initial to SSF",  corral="gutter" ,labels=c("No", "Yes"), pwcol=  (colorby) ,par(cex.lab=1.2, cex.axis=1.5, cex.lab= 1.5, mar=c(5,5,5,2)))
+   BS
+   boxplot <-boxplot(data~factor, add = T, col="#0000ff22", axes=FALSE, cex=2.0)
+   boxplot
+    legend('topleft', legend = c( "Sleep deprivation, plasma", "Sleep deprivation, stool","Centenarian, plasma","Centenarian, stool") , col=c("violetred4","deepskyblue","deeppink3","dodgerblue1"), pch=19, bty='n', cex= 1.35)
+    text(2.4, 4.5, paste("P =",signif(SSF_ttest$p.value,2)))
+    }
+
+SSF <- get.bsbp_SSF(D_Ciao.ONR_ItoSSF$D_Ciao.ONR_ItoSSF,D_Ciao.ONR_ItoSSF$analysis,as.character(D_Ciao.ONR_ItoSSF$label))
+
+png("D_SSF_analysis_30June20.png", width = 8, height = 7.5, units = 'in', res = 300)
+D_SSF_analysis <-get.bsbp_SSF(D_Ciao.ONR_ItoSSF$D_Ciao.ONR_ItoSSF,D_Ciao.ONR_ItoSSF$analysis,as.character(D_Ciao.ONR_ItoSSF$label))
+dev.off()
+
+```
+
+Change in interpreted spectral rates
+```{r}
+library(ggplot2)  
+
+data_fecal_initial <- data_fecal[data_fecal$annotation_type == "initial",]
+data_fecal_total <-data_fecal[data_fecal$annotation_type == "TOTAL",]
+data_fecal_GFOP <-data_fecal[data_fecal$annotation_type == "GFOP",]
+
+D_annotation_fecal_ItoT <- data_fecal_total$explanation_rate - data_fecal_initial$explanation_rate
+D_annotation_fecal_ItoG <- data_fecal_GFOP$explanation_rate - data_fecal_initial$explanation_rate
+
+mean_se(D_annotation_fecal_ItoT)  #43.675 +/- 3.06078
+mean_se(D_annotation_fecal_ItoG)  # 26.7968  +/- 3.29889
+
+#------
+
+data_plasma_initial<- data_plasma[data_plasma$annotation_type == "initial",]
+data_plasma_total <-data_plasma[data_plasma$annotation_type == "TOTAL",]
+data_plasma_GFOP<-data_plasma[data_plasma$annotation_type == "GFOP",]
+
+D_annotation_plasma_ItoT <- data_plasma_total$explanation_rate - data_plasma_initial$explanation_rate
+D_annotation_plasma_ItoG <- data_plasma_GFOP$explanation_rate - data_plasma_initial$explanation_rate
+
+mean_se(D_annotation_plasma_ItoT)  #54.13741 +/- 4.51729
+mean_se(D_annotation_plasma_ItoG)  # 27.64304  +/- 5.09078
+
+#----
+
+data_no_plasma_initial<- data_no_plasma[data_no_plasma$annotation_type == "initial",]
+data_no_plasma_total <-data_no_plasma[data_no_plasma$annotation_type == "TOTAL",]
+data_no_plasma_GFOP<-data_no_plasma[data_no_plasma$annotation_type == "GFOP",]
+
+D_annotation_no_plasma_ItoT <- data_no_plasma_total$explanation_rate - data_no_plasma_initial$explanation_rate
+D_annotation_no_plasma_ItoG <- data_no_plasma_GFOP$explanation_rate - data_no_plasma_initial$explanation_rate
+
+mean_se(D_annotation_no_plasma_ItoT)  #57.99182	 +/- 4.16442
+mean_se(D_annotation_no_plasma_ItoG)  # 40.55903  +/- 4.63956
+
+#----
+
+data_environment_initial<- data_environment[data_environment$annotation_type == "initial",]
+data_environment_total <-data_environment[data_environment$annotation_type == "TOTAL",]
+data_environment_GFOP<-data_environment[data_environment$annotation_type == "GFOP",]
+
+D_annotation_environment_ItoT <- data_environment_total$explanation_rate - data_environment_initial$explanation_rate
+D_annotation_environment_ItoG <- data_environment_GFOP$explanation_rate - data_environment_initial$explanation_rate
+
+mean_se(D_annotation_environment_ItoT)  #26.4142 +/- 4.33048
+mean_se(D_annotation_environment_ItoG)  # 10.51087  +/- 2.474996
+
+```
+
+

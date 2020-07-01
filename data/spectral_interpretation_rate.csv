@@ -1,0 +1,170 @@
+sample_name,dataset,dataset_broad,sample_specific,sample_type_specific,sample_type,sample_type_broad,annotation_type,explanation_rate,SSF_intensity,order,analysis,analysis_SSF_test,label
+actinomycete_lichen - FoodOmics 3500_GFOP,Actinomycete_lichen,Actinomycete_lichen,environment,environment,environment,other,GFOP,11.459585,N/A,3,yes,no,green4
+actinomycete_lichen - FoodOmics 3500_initial,Actinomycete_lichen,Actinomycete_lichen,environment,environment,environment,other,initial,4.868045,N/A,1,yes,no,green4
+actinomycete_lichen - FoodOmics 3500_TOTAL,Actinomycete_lichen,Actinomycete_lichen,environment,environment,environment,other,TOTAL,22.709585,N/A,5,yes,no,green4
+GFOP3500 and EMP_all_GFOP,EMP,EMP,environment,environment,environment,other,GFOP,26.78797,N/A,3,no,no,green3
+GFOP3500 and EMP_all_initial,EMP,EMP,environment,environment,environment,other,initial,7.13177,N/A,1,no,no,green3
+GFOP3500 and EMP_all_TOTAL,EMP,EMP,environment,environment,environment,other,TOTAL,42.57797,N/A,5,no,no,green3
+GFOP3500 and EMP_noplants (includes animals)_GFOP,EMP,EMP,environment,environment,environment,other,GFOP,35.368905,N/A,3,no,no,green3
+GFOP3500 and EMP_noplants (includes animals)_initial,EMP,EMP,environment,environment,environment,other,initial,9.471534,N/A,1,no,no,green3
+GFOP3500 and EMP_noplants (includes animals)_TOTAL,EMP,EMP,environment,environment,environment,other,TOTAL,50.868905,N/A,5,no,no,green3
+MSV000082633 soil DOM - GFOP3500 - FoodOmics 3500_GFOP,soil_DOM,soil_DOM,environment,environment,environment,other,GFOP,18.129662,N/A,3,yes,no,yellowgreen
+MSV000082633 soil DOM - GFOP3500 - FoodOmics 3500_initial,soil_DOM,soil_DOM,environment,environment,environment,other,initial,3.040734,N/A,1,yes,no,yellowgreen
+MSV000082633 soil DOM - GFOP3500 - FoodOmics 3500_TOTAL,soil_DOM,soil_DOM,environment,environment,environment,other,TOTAL,34.809662,N/A,5,yes,no,yellowgreen
+MSV000084741 ocean seaspray - GFOP3500_GFOP,ocean seaspray,ocean seaspray,environment,environment,environment,other,GFOP,13.804544,N/A,3,yes,no,seagreen2
+MSV000084741 ocean seaspray - GFOP3500_initial,ocean seaspray,ocean seaspray,environment,environment,environment,other,initial,3.952398,N/A,1,yes,no,seagreen2
+MSV000084741 ocean seaspray - GFOP3500_TOTAL,ocean seaspray,ocean seaspray,environment,environment,environment,other,TOTAL,33.584544,N/A,5,yes,no,seagreen2
+AGP - FoodOmics 3500_GFOP,AGP,AGP,Fecal,Fecal,Fecal,Human,GFOP,19.30569,N/A,3,yes,no,blue
+AGP - FoodOmics 3500_initial,AGP,AGP,Fecal,Fecal,Fecal,Human,initial,10.49678,N/A,1,yes,no,blue
+AGP - FoodOmics 3500_TOTAL,AGP,AGP,Fecal,Fecal,Fecal,Human,TOTAL,35.46569,N/A,5,yes,no,blue
+CIAO Fecal - food - Foodomics 3500 (no CIAO food)_GFOP,CIAO,CIAO,Fecal,Fecal,Fecal,Human,GFOP,45.7207,N/A,3,yes,yes,dodgerblue1
+CIAO Fecal - food - Foodomics 3500 (no CIAO food)_initial,CIAO,CIAO,Fecal,Fecal,Fecal,Human,initial,5.433318,SSF-3,1,yes,yes,dodgerblue1
+CIAO Fecal - food - Foodomics 3500 (no CIAO food)_SSF,CIAO,CIAO,Fecal,Fecal,Fecal,Human,SSF,20.035923,SSF-3,2,yes,yes,dodgerblue1
+CIAO Fecal - food - Foodomics 3500 (no CIAO food)_SSF & GFOP,CIAO,CIAO,Fecal,Fecal,Fecal,Human,SSF & GFOP,48.96273,N/A,4,yes,yes,dodgerblue1
+CIAO Fecal - food - Foodomics 3500 (no CIAO food)_TOTAL,CIAO,CIAO,Fecal,Fecal,Fecal,Human,TOTAL,61.80273,N/A,5,yes,yes,dodgerblue1
+CIAO Fecal - ONR food - Foodomics 3500 (no ONR food) FDR 0.01_GFOP,CIAO_SSF_test,CIAO,Fecal,Fecal,Fecal,Human,GFOP,48.537175,N/A,3,no,yes,dodgerblue1
+CIAO Fecal - ONR food - Foodomics 3500 (no ONR food) FDR 0.01_initial,CIAO_SSF_test,CIAO,Fecal,Fecal,Fecal,Human,initial,5.421848,SSF-0,1,no,yes,dodgerblue1
+CIAO Fecal - ONR food - Foodomics 3500 (no ONR food) FDR 0.01_SSF,CIAO_SSF_test,CIAO,Fecal,Fecal,Fecal,Human,SSF,11.47893,SSF-0,2,no,yes,dodgerblue1
+CIAO Fecal - ONR food - Foodomics 3500 (no ONR food) FDR 0.01_SSF & GFOP,CIAO_SSF_test,CIAO,Fecal,Fecal,Fecal,Human,SSF & GFOP,49.208195,N/A,4,no,yes,dodgerblue1
+CIAO Fecal - ONR food - Foodomics 3500 (no ONR food) FDR 0.01_TOTAL,CIAO_SSF_test,CIAO,Fecal,Fecal,Fecal,Human,TOTAL,61.518195,N/A,5,no,yes,dodgerblue1
+Doty fecal - breastmilk - GFOP3500_1,infant,infant,Fecal,Fecal,Fecal,Human,initial,9.052498,SSF-1,1,yes,no,slategray2
+Doty fecal - breastmilk - GFOP3500_2,infant,infant,Fecal,Fecal,Fecal,Human,SSF,11.720785,SSF-1,2,yes,no,slategray2
+Doty fecal - breastmilk - GFOP3500_3,infant,infant,Fecal,Fecal,Fecal,Human,GFOP,39.416565,N/A,3,yes,no,slategray2
+Doty fecal - breastmilk - GFOP3500_4,infant,infant,Fecal,Fecal,Fecal,Human,SSF & GFOP,39.746484,N/A,4,yes,no,slategray2
+Doty fecal - breastmilk - GFOP3500_5,infant,infant,Fecal,Fecal,Fecal,Human,TOTAL,57.086484,N/A,5,yes,no,slategray2
+GFOP3500 and Fermented food consumption study - all (G1)_GFOP,Fermented foods,Fermented foods,Fecal,Fecal,Fecal,Human,GFOP,25.29569,N/A,3,yes,no,steelblue2
+GFOP3500 and Fermented food consumption study - all (G1)_initial,Fermented foods,Fermented foods,Fecal,Fecal,Fecal,Human,initial,10.88461,N/A,1,yes,no,steelblue2
+GFOP3500 and Fermented food consumption study - all (G1)_TOTAL,Fermented foods,Fermented foods,Fecal,Fecal,Fecal,Human,TOTAL,49.33569,N/A,5,yes,no,steelblue2
+GFOP3500 and IBD 200 Human Fecal Samples 020520_GFOP,IB_200,IB_200,Fecal,Fecal,Fecal,Human,GFOP,29.85305,N/A,3,yes,no,darkblue
+GFOP3500 and IBD 200 Human Fecal Samples 020520_initial,IB_200,IB_200,Fecal,Fecal,Fecal,Human,initial,6.655612,N/A,1,yes,no,darkblue
+GFOP3500 and IBD 200 Human Fecal Samples 020520_TOTAL,IB_200,IB_200,Fecal,Fecal,Fecal,Human,TOTAL,41.86305,N/A,5,yes,no,darkblue
+GFOP3500 and IBD Fecal Sample Solvent Test_GFOP,IBD_individual,IBD_individual,Fecal,Fecal,Fecal,Human,GFOP,20.160481,N/A,3,yes,no,darkblue
+GFOP3500 and IBD Fecal Sample Solvent Test_initial,IBD_individual,IBD_individual,Fecal,Fecal,Fecal,Human,initial,7.923771,N/A,1,yes,no,darkblue
+GFOP3500 and IBD Fecal Sample Solvent Test_TOTAL,IBD_individual,IBD_individual,Fecal,Fecal,Fecal,Human,TOTAL,37.310481,N/A,5,yes,no,darkblue
+GFOP3500 and MSV000082221 IBD SEED_GFOP,IBD_seed,IBD_seed,Fecal,Fecal,Fecal,Human,GFOP,62.68592,N/A,3,yes,no,darkblue
+GFOP3500 and MSV000082221 IBD SEED_initial,IBD_seed,IBD_seed,Fecal,Fecal,Fecal,Human,initial,13.74729,N/A,1,yes,no,darkblue
+GFOP3500 and MSV000082221 IBD SEED_TOTAL,IBD_seed,IBD_seed,Fecal,Fecal,Fecal,Human,TOTAL,76.80592,N/A,5,yes,no,darkblue
+GFOP3500 and MSV000082431 IBD_GFOP,IBD_1,IBD_1,Fecal,Fecal,Fecal,Human,GFOP,42.098593,N/A,3,yes,no,darkblue
+GFOP3500 and MSV000082431 IBD_initial,IBD_1,IBD_1,Fecal,Fecal,Fecal,Human,initial,8.211887,N/A,1,yes,no,darkblue
+GFOP3500 and MSV000082431 IBD_TOTAL,IBD_1,IBD_1,Fecal,Fecal,Fecal,Human,TOTAL,52.848593,N/A,5,yes,no,darkblue
+IBD Biobank Stool Samples_1,IBD_biobank,IBD_biobank,Fecal,Fecal,Fecal,Human,initial,5.418796,N/A,1,yes,no,darkblue
+IBD Biobank Stool Samples_3,IBD_biobank,IBD_biobank,Fecal,Fecal,Fecal,Human,GFOP,14.425785,N/A,3,yes,no,darkblue
+IBD Biobank Stool Samples_5,IBD_biobank,IBD_biobank,Fecal,Fecal,Fecal,Human,TOTAL,30.885785,N/A,5,yes,no,darkblue
+IBD Severity Part 2 Human Samples_1,IBD_2,IBD_2,Fecal,Fecal,Fecal,Human,initial,7.593166,N/A,1,yes,no,darkblue
+IBD Severity Part 2 Human Samples_3,IBD_2,IBD_2,Fecal,Fecal,Fecal,Human,GFOP,35.612948,N/A,3,yes,no,darkblue
+IBD Severity Part 2 Human Samples_5,IBD_2,IBD_2,Fecal,Fecal,Fecal,Human,TOTAL,49.262948,N/A,5,yes,no,darkblue
+Malawi stool - GFOP3500 overlap_GFOP,Malawi stool,Malawi stool,Fecal,Fecal,Fecal,Human,GFOP,30.33687,N/A,3,yes,no,royalblue
+Malawi stool - GFOP3500 overlap_initial,Malawi stool,Malawi stool,Fecal,Fecal,Fecal,Human,initial,18.38824,SSF-1,1,yes,no,royalblue
+Malawi stool - GFOP3500 overlap_SSF,Malawi stool,Malawi stool,Fecal,Fecal,Fecal,Human,SSF,19.30486,SSF-1,2,yes,no,royalblue
+Malawi stool - GFOP3500 overlap_SSF & GFOP,Malawi stool,Malawi stool,Fecal,Fecal,Fecal,Human,SSF & GFOP,30.39736,N/A,4,yes,no,royalblue
+Malawi stool - GFOP3500 overlap_TOTAL,Malawi stool,Malawi stool,Fecal,Fecal,Fecal,Human,TOTAL,49.67736,N/A,5,yes,no,royalblue
+ONR Fecal - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01_GFOP,ONR_SSF_test,ONR,Fecal,Fecal,Fecal,Human,GFOP,46.08013,N/A,3,no,yes,deepskyblue
+ONR Fecal - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01_initial,ONR_SSF_test,ONR,Fecal,Fecal,Fecal,Human,initial,7.034356,SSF-0,1,no,yes,deepskyblue
+ONR Fecal - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01_SSF,ONR_SSF_test,ONR,Fecal,Fecal,Fecal,Human,SSF,12.029769,SSF-0,2,no,yes,deepskyblue
+ONR Fecal - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01_SSF & GFOP,ONR_SSF_test,ONR,Fecal,Fecal,Fecal,Human,SSF & GFOP,46.355388,N/A,4,no,yes,deepskyblue
+ONR Fecal - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01_TOTAL,ONR_SSF_test,ONR,Fecal,Fecal,Fecal,Human,TOTAL,59.195388,N/A,5,no,yes,deepskyblue
+ONR Fecal - ONR Food - FoodOmics 3500 (no ONR)_GFOP,ONR,ONR,Fecal,Fecal,Fecal,Human,GFOP,37.553604,N/A,3,yes,yes,deepskyblue
+ONR Fecal - ONR Food - FoodOmics 3500 (no ONR)_initial,ONR,ONR,Fecal,Fecal,Fecal,Human,initial,7.2,SSF-4,1,yes,yes,deepskyblue
+ONR Fecal - ONR Food - FoodOmics 3500 (no ONR)_SSF,ONR,ONR,Fecal,Fecal,Fecal,Human,SSF,27.792526,SSF-4,2,yes,yes,deepskyblue
+ONR Fecal - ONR Food - FoodOmics 3500 (no ONR)_SSF & GFOP,ONR,ONR,Fecal,Fecal,Fecal,Human,SSF & GFOP,46.31407,N/A,4,yes,yes,deepskyblue
+ONR Fecal - ONR Food - FoodOmics 3500 (no ONR)_TOTAL,ONR,ONR,Fecal,Fecal,Fecal,Human,TOTAL,59.51407,N/A,5,yes,yes,deepskyblue
+ONR Fecal match - ONR Food - FoodOmics 3500 (no ONR)_GFOP,ONR,ONR,Fecal,Fecal,Fecal,Human,GFOP,45.513386,N/A,3,yes,no,deepskyblue
+ONR Fecal match - ONR Food - FoodOmics 3500 (no ONR)_initial,ONR,ONR,Fecal,Fecal,Fecal,Human,initial,9.473375,SSF-5,1,yes,no,deepskyblue
+ONR Fecal match - ONR Food - FoodOmics 3500 (no ONR)_SSF,ONR,ONR,Fecal,Fecal,Fecal,Human,SSF,37.658135,SSF-5,2,yes,no,deepskyblue
+ONR Fecal match - ONR Food - FoodOmics 3500 (no ONR)_SSF & GFOP,ONR,ONR,Fecal,Fecal,Fecal,Human,SSF & GFOP,56.457782,N/A,4,yes,no,deepskyblue
+ONR Fecal match - ONR Food - FoodOmics 3500 (no ONR)_TOTAL,ONR,ONR,Fecal,Fecal,Fecal,Human,TOTAL,66.047782,N/A,5,yes,no,deepskyblue
+RA fecal - food - FoodOmics 3500 tol 0.01 cluster 2 (QE)_GFOP,RA,RA,Fecal,Fecal,Fecal,Human,GFOP,40.447504,N/A,3,yes,no,lightskyblue
+RA fecal - food - FoodOmics 3500 tol 0.01 cluster 2 (QE)_initial,RA,RA,Fecal,Fecal,Fecal,Human,initial,9.434165,SSF-3,1,yes,no,lightskyblue
+RA fecal - food - FoodOmics 3500 tol 0.01 cluster 2 (QE)_SSF,RA,RA,Fecal,Fecal,Fecal,Human,SSF,16.017642,SSF-3,2,yes,no,lightskyblue
+RA fecal - food - FoodOmics 3500 tol 0.01 cluster 2 (QE)_SSF & GFOP,RA,RA,Fecal,Fecal,Fecal,Human,SSF & GFOP,43.405766,N/A,4,yes,no,lightskyblue
+RA fecal - food - FoodOmics 3500 tol 0.01 cluster 2 (QE)_TOTAL,RA,RA,Fecal,Fecal,Fecal,Human,TOTAL,57.225766,N/A,5,yes,no,lightskyblue
+RA fecal - food - FoodOmics 3500 tol 0.01 cluster 4 (QE)_GFOP,RA_4,RA_4,Fecal,Fecal,Fecal,Human,GFOP,53.95778,N/A,3,no,no,lightskyblue
+RA fecal - food - FoodOmics 3500 tol 0.01 cluster 4 (QE)_initial,RA_4,RA_4,Fecal,Fecal,Fecal,Human,initial,12.76385,SSF-3,1,no,no,lightskyblue
+RA fecal - food - FoodOmics 3500 tol 0.01 cluster 4 (QE)_SSF,RA_4,RA_4,Fecal,Fecal,Fecal,Human,SSF,21.30607,SSF-3,2,no,no,lightskyblue
+RA fecal - food - FoodOmics 3500 tol 0.01 cluster 4 (QE)_SSF & GFOP,RA_4,RA_4,Fecal,Fecal,Fecal,Human,SSF & GFOP,57.12401,N/A,4,no,no,lightskyblue
+RA fecal - food - FoodOmics 3500 tol 0.01 cluster 4 (QE)_TOTAL,RA_4,RA_4,Fecal,Fecal,Fecal,Human,TOTAL,69.49401,N/A,5,no,no,lightskyblue
+Rady CMC - formulas - FoodOmics 3500 (no formula)_GFOP,Rady CMC,Rady CMC,Fecal,Fecal,Fecal,Human,GFOP,52.636081,N/A,3,yes,no,darkslategray2
+Rady CMC - formulas - FoodOmics 3500 (no formula)_initial,Rady CMC,Rady CMC,Fecal,Fecal,Fecal,Human,initial,3.7,SSF-1,1,yes,no,darkslategray2
+Rady CMC - formulas - FoodOmics 3500 (no formula)_SSF,Rady CMC,Rady CMC,Fecal,Fecal,Fecal,Human,SSF,4.611198,SSF-1,2,yes,no,darkslategray2
+Rady CMC - formulas - FoodOmics 3500 (no formula)_SSF & GFOP,Rady CMC,Rady CMC,Fecal,Fecal,Fecal,Human,SSF & GFOP,52.721617,N/A,4,yes,no,darkslategray2
+Rady CMC - formulas - FoodOmics 3500 (no formula)_TOTAL,Rady CMC,Rady CMC,Fecal,Fecal,Fecal,Human,TOTAL,64.431617,N/A,5,yes,no,darkslategray2
+UVA vaccine response trial (MSV000084218)_GFOP,UVA,UVA,Fecal,Fecal,Fecal,Human,GFOP,35.27579,N/A,3,yes,no,dodgerblue4
+UVA vaccine response trial (MSV000084218)_initial,UVA,UVA,Fecal,Fecal,Fecal,Human,initial,13.97632,N/A,1,yes,no,dodgerblue4
+UVA vaccine response trial (MSV000084218)_TOTAL,UVA,UVA,Fecal,Fecal,Fecal,Human,TOTAL,56.82579,N/A,5,yes,no,dodgerblue4
+GFOP3500_initial,GFOP3500,GFOP3501,Food,Food,Food,other,initial,5.739428,N/A,1,yes,no,magenta4
+AD CSF - FoodOmics 3500 tol 0.01 2 mincluster (QE)_GFOP,AD,AD,CSF,Human_other,Human_other,Human,GFOP,48.59565,N/A,3,yes,no,magenta4
+AD CSF - FoodOmics 3500 tol 0.01 2 mincluster (QE)_initial,AD,AD,CSF,Human_other,Human_other,Human,initial,17.11712,N/A,1,yes,no,magenta4
+AD CSF - FoodOmics 3500 tol 0.01 2 mincluster (QE)_TOTAL,AD,AD,CSF,Human_other,Human_other,Human,TOTAL,71.38565,N/A,5,yes,no,magenta4
+AD CSF - FoodOmics 3500 tol 0.01 4 mincluster (QE)_GFOP,AD_4,AD_4,CSF,Human_other,Human_other,Human,GFOP,54.57538,N/A,3,no,no,magenta4
+AD CSF - FoodOmics 3500 tol 0.01 4 mincluster (QE)_initial,AD_4,AD_4,CSF,Human_other,Human_other,Human,initial,18.63068,N/A,1,no,no,magenta4
+AD CSF - FoodOmics 3500 tol 0.01 4 mincluster (QE)_TOTAL,AD_4,AD_4,CSF,Human_other,Human_other,Human,TOTAL,76.95538,N/A,5,no,no,magenta4
+AD Plasma - FoodOmics 3500 tol 0.01 2 mincluster (QE)_GFOP,AD,AD,Plasma,Plasma,Human_other,Human,GFOP,48.11659,N/A,3,yes,no,indianred1
+AD Plasma - FoodOmics 3500 tol 0.01 2 mincluster (QE)_initial,AD,AD,Plasma,Plasma,Human_other,Human,initial,20.13453,N/A,1,yes,no,indianred1
+AD Plasma - FoodOmics 3500 tol 0.01 2 mincluster (QE)_TOTAL,AD,AD,Plasma,Plasma,Human_other,Human,TOTAL,68.74659,N/A,5,yes,no,indianred1
+AD Plasma - FoodOmics 3500 tol 0.01 4 mincluster (QE)_GFOP,AD_4,AD_4,Plasma,Plasma,Human_other,Human,GFOP,53.85475,N/A,3,no,no,indianred1
+AD Plasma - FoodOmics 3500 tol 0.01 4 mincluster (QE)_initial,AD_4,AD_4,Plasma,Plasma,Human_other,Human,initial,20.94972,N/A,1,no,no,indianred1
+AD Plasma - FoodOmics 3500 tol 0.01 4 mincluster (QE)_TOTAL,AD_4,AD_4,Plasma,Plasma,Human_other,Human,TOTAL,74.41475,N/A,5,no,no,indianred1
+CIAO Plasma - food - Foodomics 3500 (no CIAO food)_GFOP,CIAO,CIAO,Plasma,Plasma,Human_other,Human,GFOP,50.747914,N/A,3,yes,yes,deeppink1
+CIAO Plasma - food - Foodomics 3500 (no CIAO food)_initial,CIAO,CIAO,Plasma,Plasma,Human_other,Human,initial,4.88,SSF-3,1,yes,yes,deeppink1
+CIAO Plasma - food - Foodomics 3500 (no CIAO food)_SSF,CIAO,CIAO,Plasma,Plasma,Human_other,Human,SSF,24.405605,SSF-3,2,yes,yes,deeppink1
+CIAO Plasma - food - Foodomics 3500 (no CIAO food)_SSF & GFOP,CIAO,CIAO,Plasma,Plasma,Human_other,Human,SSF & GFOP,55.046449,N/A,4,yes,yes,deeppink1
+CIAO Plasma - food - Foodomics 3500 (no CIAO food)_TOTAL,CIAO,CIAO,Plasma,Plasma,Human_other,Human,TOTAL,66.166449,N/A,5,yes,yes,deeppink1
+CIAO plasma - ONR food - Foodomics 3500 (no ONR food) FDR 0.01_GFOP,CIAO_SSF_test,CIAO,Plasma,Plasma,Human_other,Human,GFOP,54.707818,N/A,3,no,yes,deeppink1
+CIAO plasma - ONR food - Foodomics 3500 (no ONR food) FDR 0.01_initial,CIAO_SSF_test,CIAO,Plasma,Plasma,Human_other,Human,initial,4.809651,SSF-0,1,no,yes,deeppink1
+CIAO plasma - ONR food - Foodomics 3500 (no ONR food) FDR 0.01_SSF,CIAO_SSF_test,CIAO,Plasma,Plasma,Human_other,Human,SSF,9.697634,SSF-0,2,no,yes,deeppink1
+CIAO plasma - ONR food - Foodomics 3500 (no ONR food) FDR 0.01_SSF & GFOP,CIAO_SSF_test,CIAO,Plasma,Plasma,Human_other,Human,SSF & GFOP,55.475482,N/A,4,no,yes,deeppink1
+CIAO plasma - ONR food - Foodomics 3500 (no ONR food) FDR 0.01_TOTAL,CIAO_SSF_test,CIAO,Plasma,Plasma,Human_other,Human,TOTAL,65.875482,N/A,5,no,yes,deeppink1
+Doty oral - breastmilk - GFOP3500_1,infant,infant,Oral,Human_other,Human_other,Human,initial,9.020324,SSF-1,1,yes,no,purple4
+Doty oral - breastmilk - GFOP3500_2,infant,infant,Oral,Human_other,Human_other,Human,SSF,13.70937,SSF-1,2,yes,no,purple4
+Doty oral - breastmilk - GFOP3500_3,infant,infant,Oral,Human_other,Human_other,Human,GFOP,35.814874,N/A,3,yes,no,purple4
+Doty oral - breastmilk - GFOP3500_4,infant,infant,Oral,Human_other,Human_other,Human,SSF & GFOP,36.987136,N/A,4,yes,no,purple4
+Doty oral - breastmilk - GFOP3500_5,infant,infant,Oral,Human_other,Human_other,Human,TOTAL,55.457136,N/A,5,yes,no,purple4
+Doty skin - breastmilk - GFOP3500_1,infant,infant,Skin,Human_other,Human_other,Human,initial,8.491281,SSF-1,1,yes,no,darkmagenta
+Doty skin - breastmilk - GFOP3500_2,infant,infant,Skin,Human_other,Human_other,Human,SSF,11.056356,SSF-1,2,yes,no,darkmagenta
+Doty skin - breastmilk - GFOP3500_3,infant,infant,Skin,Human_other,Human_other,Human,GFOP,39.057367,N/A,3,yes,no,darkmagenta
+Doty skin - breastmilk - GFOP3500_4,infant,infant,Skin,Human_other,Human_other,Human,SSF & GFOP,39.133182,N/A,4,yes,no,darkmagenta
+Doty skin - breastmilk - GFOP3500_5,infant,infant,Skin,Human_other,Human_other,Human,TOTAL,63.283182,N/A,5,yes,no,darkmagenta
+GFOP3500 and GNPS - SEED Grant - IBD Biopsy_GFOP,IBD_biopsy,IBD_biopsy,IBD_biopsy,Human_other,Human_other,Human,GFOP,66.991582,N/A,3,yes,no,darkorchid4
+GFOP3500 and GNPS - SEED Grant - IBD Biopsy_initial,IBD_biopsy,IBD_biopsy,IBD_biopsy,Human_other,Human_other,Human,initial,9.680992,N/A,1,yes,no,darkorchid4
+GFOP3500 and GNPS - SEED Grant - IBD Biopsy_TOTAL,IBD_biopsy,IBD_biopsy,IBD_biopsy,Human_other,Human_other,Human,TOTAL,78.551582,N/A,5,yes,no,darkorchid4
+GFOP3500 and IBD 200 Human Serum Samples 020520_GFOP,IBD_200,IBD_200,Serum,Human_other,Human_other,Human,GFOP,56.41671,N/A,3,yes,no,hotpink
+GFOP3500 and IBD 200 Human Serum Samples 020520_initial,IBD_200,IBD_200,Serum,Human_other,Human_other,Human,initial,18.11777,N/A,1,yes,no,hotpink
+GFOP3500 and IBD 200 Human Serum Samples 020520_TOTAL,IBD_200,IBD_200,Serum,Human_other,Human_other,Human,TOTAL,66.85671,N/A,5,yes,no,hotpink
+ONR Plasma - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01_GFOP,ONR_SSF_test,ONR,Plasma,Plasma,Human_other,Human,GFOP,52.924708,N/A,3,no,yes,violetred4
+ONR Plasma - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01_initial,ONR_SSF_test,ONR,Plasma,Plasma,Human_other,Human,initial,7.409259,SSF-0,1,no,yes,violetred4
+ONR Plasma - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01_SSF,ONR_SSF_test,ONR,Plasma,Plasma,Human_other,Human,SSF,13.118688,SSF-0,2,no,yes,violetred4
+ONR Plasma - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01_SSF & GFOP,ONR_SSF_test,ONR,Plasma,Plasma,Human_other,Human,SSF & GFOP,53.594641,N/A,4,no,yes,violetred4
+ONR Plasma - CIAO Food - FoodOmics 3500 (no CIAO) FDR 0.01_TOTAL,ONR_SSF_test,ONR,Plasma,Plasma,Human_other,Human,TOTAL,66.444641,N/A,5,no,yes,violetred4
+ONR Plasma - ONR Food - FoodOmics 3500 (no ONR)_GFOP,ONR,ONR,Plasma,Plasma,Human_other,Human,GFOP,34.767814,N/A,3,yes,yes,violetred4
+ONR Plasma - ONR Food - FoodOmics 3500 (no ONR)_initial,ONR,ONR,Plasma,Plasma,Human_other,Human,initial,7.766,SSF-4,1,yes,yes,violetred4
+ONR Plasma - ONR Food - FoodOmics 3500 (no ONR)_SSF,ONR,ONR,Plasma,Plasma,Human_other,Human,SSF,38.941153,SSF-4,2,yes,yes,violetred4
+ONR Plasma - ONR Food - FoodOmics 3500 (no ONR)_SSF & GFOP,ONR,ONR,Plasma,Plasma,Human_other,Human,SSF & GFOP,53.843074,N/A,4,yes,yes,violetred4
+ONR Plasma - ONR Food - FoodOmics 3500 (no ONR)_TOTAL,ONR,ONR,Plasma,Plasma,Human_other,Human,TOTAL,66.993074,N/A,5,yes,yes,violetred4
+ONR Plasma match - ONR Food - FoodOmics 3500 (no ONR)_GFOP,ONR,ONR,Plasma,Plasma,Human_other,Human,GFOP,41.187097,N/A,3,yes,no,violetred4
+ONR Plasma match - ONR Food - FoodOmics 3500 (no ONR)_initial,ONR,ONR,Plasma,Plasma,Human_other,Human,initial,7.767742,SSF-5,1,yes,no,violetred4
+ONR Plasma match - ONR Food - FoodOmics 3500 (no ONR)_SSF,ONR,ONR,Plasma,Plasma,Human_other,Human,SSF,52.929032,SSF-5,2,yes,no,violetred4
+ONR Plasma match - ONR Food - FoodOmics 3500 (no ONR)_SSF & GFOP,ONR,ONR,Plasma,Plasma,Human_other,Human,SSF & GFOP,67.56129,N/A,4,yes,no,violetred4
+ONR Plasma match - ONR Food - FoodOmics 3500 (no ONR)_TOTAL,ONR,ONR,Plasma,Plasma,Human_other,Human,TOTAL,76.67129,N/A,5,yes,no,violetred4
+RA plasma - food - FoodOmics 3500 tol 0.01 cluster 2 (QE)_GFOP,RA,RA,Plasma,Plasma,Human_other,Human,GFOP,40.1875,N/A,3,yes,no,maroon3
+RA plasma - food - FoodOmics 3500 tol 0.01 cluster 2 (QE)_initial,RA,RA,Plasma,Plasma,Human_other,Human,initial,16.3125,SSF-3,1,yes,no,maroon3
+RA plasma - food - FoodOmics 3500 tol 0.01 cluster 2 (QE)_SSF,RA,RA,Plasma,Plasma,Human_other,Human,SSF,27.75,SSF-3,2,yes,no,maroon3
+RA plasma - food - FoodOmics 3500 tol 0.01 cluster 2 (QE)_SSF & GFOP,RA,RA,Plasma,Plasma,Human_other,Human,SSF & GFOP,47.1875,N/A,4,yes,no,maroon3
+RA plasma - food - FoodOmics 3500 tol 0.01 cluster 2 (QE)_TOTAL,RA,RA,Plasma,Plasma,Human_other,Human,TOTAL,64.9975,N/A,5,yes,no,maroon3
+RA plasma - food - FoodOmics 3500 tol 0.01 cluster 4 (QE)_GFOP,RA_4,RA_4,Plasma,Plasma,Human_other,Human,GFOP,51.16681,N/A,3,no,no,maroon3
+RA plasma - food - FoodOmics 3500 tol 0.01 cluster 4 (QE)_initial,RA_4,RA_4,Plasma,Plasma,Human_other,Human,initial,20.05186,SSF-3,1,no,no,maroon3
+RA plasma - food - FoodOmics 3500 tol 0.01 cluster 4 (QE)_SSF,RA_4,RA_4,Plasma,Plasma,Human_other,Human,SSF,35.09075,SSF-3,2,no,no,maroon3
+RA plasma - food - FoodOmics 3500 tol 0.01 cluster 4 (QE)_SSF & GFOP,RA_4,RA_4,Plasma,Plasma,Human_other,Human,SSF & GFOP,60.06914,N/A,4,no,no,maroon3
+RA plasma - food - FoodOmics 3500 tol 0.01 cluster 4 (QE)_TOTAL,RA_4,RA_4,Plasma,Plasma,Human_other,Human,TOTAL,77.95914,N/A,5,no,no,maroon3
+Saliva SEED - GFOP3500_1,saliva,saliva,Saliva,Human_other,Human_other,Human,initial,12.09374,N/A,1,yes,no,purple
+Saliva SEED - GFOP3500_3,saliva,saliva,Saliva,Human_other,Human_other,Human,GFOP,55.56995,N/A,3,yes,no,purple
+Saliva SEED - GFOP3500_5,saliva,saliva,Saliva,Human_other,Human_other,Human,TOTAL,67.90995,N/A,5,yes,no,purple
+Urine - legume - FoodOmics 3500 (no legumes) FDR 0.01_initial,legume,legume,Urine,Human_other,Human_other,Human,initial,6.231743,SSF-4,1,yes,no,palevioletred1
+Urine - legume - FoodOmics 3500 (no legumes) FDR 0.01_SSF,legume,legume,Urine,Human_other,Human_other,Human,SSF,55.40409,SSF-4,2,yes,no,palevioletred1
+Urine - legume - FoodOmics 3500 (no legumes) FDR 0.01_GFOP,legume,legume,Urine,Human_other,Human_other,Human,GFOP,62.220058,N/A,3,yes,no,palevioletred1
+Urine - legume - FoodOmics 3500 (no legumes) FDR 0.01_SSF & GFOP,legume,legume,Urine,Human_other,Human_other,Human,SSF & GFOP,78.091529,N/A,4,yes,no,palevioletred1
+Urine - legume - FoodOmics 3500 (no legumes) FDR 0.01_TOTAL,legume,legume,Urine,Human_other,Human_other,Human,TOTAL,83.251529,N/A,5,yes,no,palevioletred1
+41_MSV000085505 covid-19 - MSV000085537 - GFOP3500 FDR 0.01_initial,covid-19,covid-19,Plasma,Plasma,Human_other,Human,initial,13.04627,SSF-3,1,yes,no,magenta
+41_MSV000085505 covid-19 - MSV000085537 - GFOP3500 FDR 0.01_SSF,covid-19,covid-19,Plasma,Plasma,Human_other,Human,SSF,35.02571,SSF-3,2,yes,no,magenta
+41_MSV000085505 covid-19 - MSV000085537 - GFOP3500 FDR 0.01_GFOP,covid-19,covid-19,Plasma,Plasma,Human_other,Human,GFOP,20.75835,N/A,3,yes,no,magenta
+41_MSV000085505 covid-19 - MSV000085537 - GFOP3500 FDR 0.01_SSF & GFOP,covid-19,covid-19,Plasma,Plasma,Human_other,Human,SSF & GFOP,38.36761,N/A,4,yes,no,magenta
+41_MSV000085505 covid-19 - MSV000085537 - GFOP3500 FDR 0.01_TOTAL,covid-19,covid-19,Plasma,Plasma,Human_other,Human,TOTAL,51.15661,N/A,5,yes,no,magenta
