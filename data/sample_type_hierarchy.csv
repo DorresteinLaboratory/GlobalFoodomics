@@ -1,0 +1,430 @@
+descriptor,order_num,color_code
+plant_1,1,#458B00
+animal_1,2,#8B1A1A
+fungi_1,3,#A020F0
+algae_1,4,#3CB371
+mineral_1,5,#4D4D4D
+supplement_1,6,#707070
+water_1,7,#939393
+complex_1,8,#B6B6B6
+fruit_2,9,#2AC469
+sap_2,10,#548B54
+vegetable/herb_2,11,#228B22
+animal_2,12,#8B1A1A
+arthropod_2,13,#EEDD82
+gastropod_2,14,#CD8162
+insect_2,15,#8B6508
+invertebrate_2,16,#FFDEAD
+fungi_2,17,#A020F0
+algae_2,18,#3CB371
+mineral_2,19,#4D4D4D
+supplement_2,20,#707070
+water_2,21,#939393
+complex_2,22,#B6B6B6
+fleshy fruit_3,23,#008B45
+legume_3,24,#556B2F
+grain/grass_3,25,#597131
+achene_3,26,#5F7734
+nut_3,27,#647E37
+seed_3,28,#69843A
+sap_3,29,#548B54
+vegetable/herb_3,30,#556B2F
+seafood_3,31,#8B3A3A
+meat_3,32,#CD2626
+poultry_3,33,#CD919E
+game meat_3,34,#CD3333
+reptile_3,35,#8B2252
+egg_3,36,#CD5B45
+dairy_3,37,#CDC9A5
+honey_3,38,#FFC125
+arthropod_3,39,#EEDD82
+gastropod_3,40,#CD8162
+insect_3,41,#B8860B
+invertebrate_3,42,#FFDEAD
+fungi_3,43,#A020F0
+algae_3,44,#3CB371
+seaweed_3,45,#2E8B57
+mineral_3,46,#4D4D4D
+supplement_3,47,#707070
+water_3,48,#939393
+complex_3,49,#B6B6B6
+pseudocarp_4,50,#00FF7F
+pepo_4,51,#00F87B
+drupe_4,52,#00F278
+citrus_4,53,#00EC75
+pome_4,54,#00E672
+multifruit_4,55,#00DF6F
+berry_4,56,#00D96C
+drupe_aggregate_4,57,#00D369
+not provided_4,58,#00CD66
+legume_4,59,#556B2F
+grain/grass_4,60,#597131
+achene_4,61,#5F7734
+nut_4,62,#647E37
+seed_4,63,#69843A
+sap_4,64,#548B54
+vegetable_4,65,#00FF00
+herb/spice_4,66,#00E800
+tea/infusion_4,67,#00D200
+flower_4,68,#00BC00
+cactus_4,69,#00A600
+sugarcane_4,70,#009000
+artificial sweetener_4,71,
+corn husk_4,72,
+pod_4,73,#007A00
+citrus leaf_4,74,#006400
+shellfish_4,75,#CD5C5C
+fish_saltwater_4,76,#CD5959
+fish_freshwater_4,77,#CD5757
+octopus_4,78,#CD5555
+cow_4,79,#B22222
+lamb_4,80,#BA2323
+bison_4,81,#C32424
+pig_4,82,#CB2626
+meat_undetermined_4,83,#D42727
+horse_4,84,#DC2929
+rat_4,85,#E52A2A
+mouse_4,86,#EE2C2C
+poultry_4,87,#FFC0CB
+waterfowl_4,88,#EEA9B8
+rabbit_4,89,#A52A2A
+elk_4,90,#BD2F2F
+buffalo_4,91,#D53535
+ostrich_4,92,#EE3B3B
+lizard_4,93,#CD3278
+egg_fish_4,94,#FF7F50
+egg_poultry_4,95,#E66D4A
+milk_4,96,#FFFACD
+butter_4,97,#FBF6CA
+cream_4,98,#F8F3C7
+ice cream_4,99,#F4EFC4
+cheese_4,100,#F1ECC1
+yogurt_4,101,#EEE9BF
+honey_4,102,#FFC125
+arthropod_4,103,#EEDD82
+snail_4,104,#FFA07A
+cricket_4,105,#FFB90F
+ant_4,106,#E6A70D
+insect_4,107,#E6A70D
+grasshopper_4,108,#CD950C
+worm_4,109,#CDB38B
+yeast_4,110,#9B30FF
+mushroom_4,111,#8B2BE6
+truffle_4,112,#7D26CD
+algae_4,113,#3CB371
+seaweed_4,114,#2E8B57
+mineral_4,115,#4D4D4D
+supplement_4,116,#707070
+water_4,117,#939393
+complex_4,118,#B6B6B6
+strawberry_5,119,
+cucumber_5,120,
+melon_5,121,
+pumpkin_5,122,
+squash_5,123,
+almond_5,124,
+cashew_5,125,
+pecan_5,126,
+walnut_5,127,
+cocoa seed_5,128,
+coconut_5,129,
+copohazu_5,130,
+macadamia_5,131,
+pistachio_5,132,
+olive_5,133,
+date_5,134,
+cherry_5,135,
+plum_5,136,
+apricot_5,137,
+nectarine_5,138,
+peach_5,139,
+mango_5,140,
+lemon_5,141,
+lime_5,142,
+bergamot_5,143,
+clementine_5,144,
+kumquat_5,145,
+mandarin_5,146,
+orange_5,147,
+pomelo_5,148,
+grapefruit_5,149,
+apple_5,150,
+apple_cider_5,151,
+pear_5,152,
+quince_5,153,
+fig_5,154,
+mulberry_5,155,
+pineapple_5,156,
+acai_5,157,
+banana_5,158,
+plantain_5,159,
+kiwi_5,160,
+blueberry_5,161,
+grape_5,162,
+grape_fermented_5,163,
+cranberry_5,164,
+golden berry_5,165,
+passionfruit_5,166,
+mangosteen_5,167,
+guava_5,168,
+dragonfruit_5,169,
+pitaya_5,170,
+papaya_5,171,
+persimmon_5,172,
+pomegranate_5,173,
+sumac_5,174,
+tupiro_5,175,
+coffee_5,176,
+juniper berry,177,
+betel nut_5,178,
+wonderberry_5,179,
+ground cherry_5,180,
+tomato_5,181,
+pepper_5,182,
+eggplant_5,183,
+avocado_5,184,
+blackberry_5,185,
+raspberry_5,186,
+cocura_5,187,
+guada hervida_5,188,
+moriche palm_5,189,
+palm fruit_5,190,
+bean_5,191,
+lentil_5,192,
+pea_5,193,
+peanut_5,194,
+amaranth_5,195,
+barley_5,196,
+buckwheat_5,197,
+bulgur wheat_5,198,
+canola_5,199,
+chia_5,200,
+cicerchia_5,201,
+corn_5,202,
+farro_5,203,
+fava bean_5,204,
+flax seed_5,205,
+hemp seed_5,206,
+lotus seed_5,207,
+millet_5,208,
+oat_5,209,
+poppy seed_5,210,
+quinoa_5,211,
+rice_5,212,
+sesame_5,213,
+wheat_5,214,
+grain_fermented_5,215,
+sunflower_5,216,
+hazelnut_5,217,
+brazil nut_5,218,
+pine nut_5,219,
+sesame seed_5,220,
+maple syrup_5,221,
+molasses_5,222,
+betel nut leaf_5,223,
+arugula_5,224,
+lettuce_5,225,
+mustard greens_5,226,
+radish greens_5,227,
+spinach_5,228,
+potato leaf_5,229,
+bok choy_5,230,
+kale_5,231,
+chard_5,232,
+collard greens_5,233,
+dandelion green_5,234,
+escarole_5,235,
+fennel_5,236,
+hemp_5,237,
+celery_5,238,
+carrot_5,239,
+galangal_5,240,
+ginger_5,241,
+garlic_5,242,
+radish_5,243,
+jicama_5,244,
+kohlrabi_5,245,
+asparagus_5,246,
+grass_5,247,
+hay_5,248,
+hops_5,249,
+hearts of palm_5,250,
+leek_5,251,
+onion_5,252,
+lemon grass_5,253,
+nasturtium leaf_5,254,
+rhubarb_5,255,
+sunchoke_5,256,
+sweet potato_5,257,
+potato_5,258,
+cassava_5,259,
+taro_5,260,
+watercress_5,261,
+yuca_5,262,
+beet_5,263,
+basil_5,264,
+bay leaf_5,265,
+borage leaf_5,266,
+cannabis leaf_5,267,
+chive stem_5,268,
+cilantro_5,269,
+curry plant_5,270,
+dill_5,271,
+hing powder_5,272,
+laurel_5,273,
+lemon balm_5,274,
+lime leaf_5,275,
+tarragon_5,276,
+mushroom plant_5,277,
+parsley_5,278,
+thyme_5,279,
+marjoram_5,280,
+oregano_5,281,
+rosemary_5,282,
+mint_5,283,
+sage_5,284,
+saffron_5,285,
+garlic powder_5,286,
+anise_5,287,
+cardamom_5,288,
+cinnamon_5,289,
+cloves_5,290,
+licorice_5,291,
+nutmeg_5,292,
+spice_5,293,
+turmeric_5,294,
+infusion_5,295,
+tea_5,296,
+kombucha_5,297,
+artichoke_5,298,
+broccoli_5,299,
+cauliflower_5,300,
+brussel sprout_5,301,
+cabbage_5,302,
+chive blossom_5,303,
+dill flower_5,304,
+flower_5,305,
+lavender_5,306,
+marigold_5,307,
+nasturtium_5,308,
+pumpkin blossom_5,309,
+borage flower_5,310,
+rose_5,311,
+squash blossom_5,312,
+cactus_5,313,
+sugarcane_5,314,
+sugar_5,315,
+soda_5,316,
+artificial sweetener_5,317,
+vanilla bean_5,318,
+orange leaf_5,319,
+corn husk_5,320,
+langostino_5,321,
+shrimp_5,322,
+squid_5,323,
+ahi tuna_5,324,
+anchovy_5,325,
+bonito_5,326,
+bony fish_5,327,
+butterfish_5,328,
+cod_5,329,
+fish_undetermined_5,330,
+herring_5,331,
+mackerel_5,332,
+rock fish_5,333,
+sardine_5,334,
+silversides_5,335,
+smelt_5,336,
+salmon_5,337,
+trout_5,338,
+octopus_5,339,
+beef_5,340,
+veal_5,341,
+lamb_5,342,
+bison_5,343,
+pig_5,344,
+meat_undetermined_5,345,
+horse_5,346,
+rat_5,347,
+mouse_5,348,
+chicken_5,349,
+turkey_5,350,
+duck_5,351,
+rabbit_5,352,
+elk_5,353,
+buffalo_5,354,
+ostrich_5,355,
+lizard_5,356,
+egg_salmon_5,357,
+egg_chicken_5,358,
+egg_quail_5,359,
+milk_5,360,
+milk_cow_5,361,
+milk_goat_5,362,
+butter_5,363,
+cream_5,364,
+sour cream_5,365,
+ice cream_5,366,
+american cheese_5,367,
+bloomy cheese_5,368,
+blue cheese_5,369,
+boschetto cheese_5,370,
+brie cheese_5,371,
+cheddar cheese_5,372,
+cheese_5,373,
+cream cheese_5,374,
+dubliner cheese_5,375,
+feta cheese_5,376,
+goat cheese_5,377,
+gouda cheese_5,378,
+havarti cheese_5,379,
+Iberico cheese_5,380,
+jack cheese_5,381,
+manchego cheese_5,382,
+midnight moon cheese_5,383,
+mozzarella cheese_5,384,
+natural cheese_5,385,
+not collected_5,386,
+parmesan cheese_5,387,
+pecorino cheese_5,388,
+petit basque cheese_5,389,
+provolone_5,390,
+raclette cheese_5,391,
+ricotta cheese_5,392,
+sarro di bufala cheese_5,393,
+stilton cheese_5,394,
+string cheese_5,395,
+tomme brulee cheese_5,396,
+washed cheese_5,397,
+wine cheese_5,398,
+yogurt_cow_5,399,
+honey_5,400,
+tarantula_5,401,
+snail_5,402,
+cricket_5,403,
+ant_5,404,
+grasshopper_5,405,
+insect_5,406,
+silkworm_5,407,
+worm_5,408,
+yeast_5,409,
+mushroom_5,410,
+truffle black_5,411,
+truffle hooked_5,412,
+algae_5,413,
+dulse_5,414,
+kelp_5,415,
+nori_5,416,
+seaweed_5,417,
+calcium carbonate_5,418,
+calcium hydroxide_5,419,
+salt_5,420,
+supplement_5,421,
+water_5,422,
+complex_5,423,
+unmatched_1,999,#D3D3D3
+unmatched_2,999,#D3D3D3
+unmatched_3,999,#D3D3D3
+unmatched_4,999,#D3D3D3
+unmatched_5,999,#D3D3D3
+unmatched_6,999,#D3D3D3
