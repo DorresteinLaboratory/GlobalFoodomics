@@ -1,0 +1,48 @@
+food_level_5,count_pre,count_post,ratio,ratio_group,diet_diary_direction,diff,diff_3d,diet_recommendation,MS correlates to diet record,MS correlates to diet recommendation,MS correlates to diet recommendation_values,diet record correlates to diet recommendation,diet record correlates to diet recommendation_values,bar,diet_diary_direction,diet_diary,X.2
+coffee,197,21,0.106598985,large decrease,decrease,-176,-49.05660377,avoid,yes,yes,1,yes,1,1,decrease,Coffee,x
+tea,180,19,0.105555556,large decrease,increase,-161,-24.52830189,with restrictions,yes,yeah,0.5,yeah,0.5,1,increase,tea_total,
+yogurt_cow,501,424,0.846307385,small decrease,increase,-77,65.50451189,with restrictions,no,yeah,0.5,yeah,0.5,1,increase,Plain yogurt,x
+tomato,110,50,0.454545455,large decrease,decrease,-60,-5.660377358,avoid,yes,yes,1,yes,1,1,decrease,tomatoes,x
+beef,467,416,0.890792291,small decrease,decrease,-51,-6.97292863,avoid,yes,yes,1,yes,1,1,decrease,Beef,x
+bean,90,47,0.522222222,small decrease,decrease,-43,-7.42411813,include,yes,no,-1,no,-1,1,decrease,beans_total,
+apple_cider,412,377,0.915048544,constant,increase,-35,15.2173913,with restrictions,no,yeah,0.5,yeah,0.5,1,increase,Apple cider vinegar,x
+cheddar cheese,25,0,0,large decrease,decrease,-25,-24.52830189,avoid,yes,yes,1,yes,1,1,decrease,Cheese,x
+mackerel,52,33,0.634615385,small decrease,increase,-19,18.8269073,include,no,no,-1,yes,1,1,increase,White or Fatty fish ,x
+trout,91,74,0.813186813,small decrease,increase,-17,18.8269073,include,no,no,-1,yes,1,1,increase,White or Fatty fish ,x
+milk,76,60,0.789473684,small decrease,decrease,-16,-18.86792453,avoid,yes,yes,1,yes,1,1,decrease,Milk,x
+wheat,47,32,0.680851064,small decrease,decrease,-15,-35.27481542,avoid,yes,yes,1,yes,1,1,decrease,white bread,
+milk_goat,66,51,0.772727273,small decrease,decrease,-15,-18.86792453,avoid,yes,yes,1,yes,1,1,decrease,Milk,x
+pepper,32,17,0.53125,small decrease,increase,-15,7.957342084,with restrictions,no,yeah,0.5,yeah,0.5,1,increase,peppers,x
+mouse,48,34,0.708333333,small decrease,not specified,-14,,not specified,not defined,not defined,0,not defined,0,1,not specified,,
+corn,36,25,0.694444444,small decrease,increase,-11,13.61771944,include,no,no,-1,yes,1,1,increase,corn,x
+egg_chicken,32,22,0.6875,small decrease,decrease,-10,-29.61443806,with restrictions,yes,yeah,0.5,yeah,0.5,1,decrease,Egg,x
+soda,56,46,0.821428571,small decrease,decrease,-10,-20.46759639,avoid,yes,yes,1,yes,1,1,decrease,Soda,x
+carrot,50,41,0.82,small decrease,increase,-9,35.35684988,include,no,no,-1,yes,1,1,increase,carrots,x
+milk_cow,131,123,0.938931298,constant,decrease,-8,-18.86792453,avoid,yes,yes,1,yes,1,1,decrease,Milk,x
+cream,41,35,0.853658537,small decrease,decrease,-6,-5.660377358,avoid,yes,yes,1,yes,1,1,decrease,cream_total,x
+mushroom,24,19,0.791666667,constant,increase,-5,13.33059885,include,no,no,-1,yes,1,1,increase,mushrooms,x
+butter,29,25,0.862068966,constant,decrease,-4,-7.547169811,avoid,yes,yes,1,yes,1,1,decrease,Butter,x
+grape,23,21,0.913043478,constant,increase,-2,4.922067268,include,no,no,-1,yes,1,1,increase,grapes,x
+onion,28,26,0.928571429,constant,increase,-2,25.34864643,include,no,no,-1,yes,1,1,increase,onion,x
+pig,42,41,0.976190476,constant,decrease,-1,-31.78835111,not specified,yes,not defined,0,not defined,0,1,decrease,Pork,x
+squid,22,21,0.954545455,constant,decrease,-1,-7.547169811,not specified,yes,not defined,0,not defined,0,1,decrease,Seafood,x
+seaweed,24,23,0.958333333,constant,constant,-1,0,not specified,yes,not defined,0,not defined,0,1,constant,sea vegetables,x
+chicken,47,46,0.978723404,constant,increase,-1,2.994257588,include,yes,no,-1,yes,1,1,increase,Poultry ,x
+apricot,28,28,1,constant,constant,0,0,include,yes,yes,1,yes,1,1,constant,apricots,x
+duck,26,26,1,constant,not specified,0,,not specified,not defined,not defined,0,not defined,0,1,not specified,,
+grape_fermented,54,54,1,constant,not specified,0,,not specified,not defined,not defined,0,not defined,0,1,not specified,,
+veal,56,57,1.017857143,constant,not specified,1,,not specified,not defined,not defined,0,not defined,0,1,not specified,,
+lamb,35,39,1.114285714,constant,constant,4,0,not specified,yes,not defined,0,not defined,0,1,constant,lamb,x
+grain_fermented,67,71,1.059701493,constant,not specified,4,,not specified,not defined,not defined,0,not defined,0,1,not specified,,
+apple,57,62,1.087719298,constant,increase,5,3.158326497,include,yes,yes,1,yes,1,1,increase,apples,x
+butterfish,0,15,inf,large increase,increase,15,18.8269073,include,yes,yes,1,yes,1,1,increase,White or Fatty fish ,x
+worm,0,15,inf,large increase,not specified,15,,not specified,not defined,not defined,0,not defined,0,1,not specified,,
+cucumber,0,16,inf,large increase,increase,16,15.79163249,include,yes,yes,1,yes,1,1,increase,cucumber,x
+canola,0,17,inf,large increase,not specified,17,,not specified,not defined,not defined,0,not defined,0,1,not specified,,
+rice,0,18,inf,large increase,increase,18,6.52173913,include,yes,yes,1,yes,1,1,increase,brown rice,x
+honey,0,18,inf,large increase,increase,18,22.31337162,include,yes,yes,1,yes,1,1,increase,Honey,x
+passionfruit,0,18,inf,large increase,not specified,18,,include,not defined,yes,1,not defined,0,1,not specified,,
+herring,0,20,inf,large increase,increase,20,18.8269073,include,yes,yes,1,yes,1,1,increase,White or Fatty fish ,x
+fish_undetermined,0,20,inf,large increase,increase,20,18.8269073,include,yes,yes,1,yes,1,1,increase,White or Fatty fish ,x
+raspberry,0,21,inf,large increase,constant,21,0,include,no,yes,1,no,-1,1,constant,raspberries,x
+meat_undetermined,0,23,inf,large increase,not specified,23,,not specified,not defined,not defined,0,not defined,0,1,not specified,,

@@ -8,6 +8,7 @@ This repository contains code to generate the figures for the manuscript **Refer
 
 - [Figure 1d](https://github.com/DorresteinLaboratory/GlobalFoodomics/blob/master/notebooks/fig1d_flow_food_type_hierarchy.ipynb): Summary of the spectra observed in plasma from a sleep deprivation study at hierarchical food ontology levels.
 - [Figure 2](https://github.com/DorresteinLaboratory/GlobalFoodomics/blob/master/notebooks/fig2_spectral_interpretation_rate.Rmd): Increases of MS/MS spectral match rates when using interpretive metabolomics at the data set level.
+- [Figure 3](https://github.com/DorresteinLaboratory/GlobalFoodomics/blob/master/notebooks/fig3_dietary_recommendation.ipynb): Using interpretive metabolomics to assess dietary recommendations at the study level.
 
 ## Contact
 
