@@ -1,0 +1,128 @@
+---
+title: "Reference data based insights of human metabolomes"
+subtitle: "Figure 3"
+author: "Kiana A West"
+date: "`r Sys.Date()`"
+params:
+  f_counts: "../data/AD_serum.RDS"
+output: 
+  html_document:
+    toc: true
+    theme: cerulean
+---
+
+<style type="text/css">
+.main-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+***  
+
+Load packages
+
+```{r}
+pacman::p_load("plotly", "tidyverse", "phyloseq", "magrittr", "ggpubr", "jtools")
+```
+
+Read in data
+
+```{r}
+ps <- readRDS(params$f_counts)
+```
+
+# PCA of food counts
+
+Model CLR transformed data
+
+```{r}
+f_counts_mat <- as(ps@otu_table, "matrix")
+clr_mat <- mixOmics::logratio.transfo(f_counts_mat, offset = 1, logratio = "CLR")
+m <- mixOmics::pca(clr_mat, ncomp = 3, center = T, scale = T)
+df <- data.frame(m$variates$X, filename = m$names$sample, total_sum = rowSums(f_counts_mat), 
+                 unique_foods = apply(f_counts_mat, 1, function(x) {sum(x > 0)}))
+df <- left_join(data.frame(ps@sam_data, stringsAsFactors = FALSE), df, by = "filename")
+```
+
+Plot 
+
+```{r}
+p <- plot_ly(df, x = ~PC1, y = ~PC2, type = "scatter", mode = "markers", color = ~unique_foods,
+             marker = list(size = 10, width = 2, line = list(color = "black", width = 2))) %>%
+  layout(title = "PCA",
+         xaxis = list(title = paste0("PC1", " [", round(m$explained_variance[1]*100, digits = 1), "%]"), size = 18),
+         yaxis = list(title = paste0("PC2", " [", round(m$explained_variance[2]*100, digits = 1), "%]"), size = 18))
+htmlwidgets::saveWidget(p, file = "../AD_serum_PCA_CLR_allSamp_food_counts.html")
+```
+
+Which food groups are correlated to PC1?
+
+```{r}
+to_cor <- dplyr::select(df, PC1, apple_L5:yogurt_cow_L5)
+cor_mat <- Hmisc::rcorr(as(to_cor, "matrix"), type = "spearman")
+to_plot <- tibble(food = row.names(cor_mat$r)[-1], r = cor_mat$r[-1,"PC1"], p = cor_mat$P[-1,"PC1"]) %>%
+  mutate(fdr = p.adjust(p, method = "BH"),
+         food = str_replace_all(food, 
+                                c("_L5" = "", "_" = " ", "fermented" = "(fermented)", " cow" = " (cow)", " chicken" = " (chicken)"))) %>%
+  filter(fdr < 0.05 & abs(r) > 0.2) %>%
+  arrange(r) %>%
+  mutate(food = as_factor(food))
+p <- ggbarplot(to_plot, x = "food", y = "r", fill = "#56B4E9") +
+  labs(y = "Spearman (r)", x = "Food") +
+  coord_flip() +
+  geom_vline(xintercept = 0) +
+  theme(legend.position = "none",
+        axis.text = element_text(size = 8),
+        panel.grid.major.y = element_line(colour = "grey", size = 0.2, linetype = 2))
+```
+
+```{r}
+ggsave(filename = "../AD_serum_correlations_between_PC1_food_categories.pdf", plot = p, height = 4.5, width = 4)
+```
+
+## Is diet variation related to metadata
+
+```{r}
+df1 <- filter(df, !duplicated(RID)) # remove duplicate samples from same host
+
+m1 <- lme4::lmer(PC1 ~ DX + AGE + PTGENDER + (1|Plate),
+          data = df1)
+mres1 <- as.data.frame(anova(m1)) %>%
+  set_colnames(make.names(colnames(.))) %>%
+  mutate(term = row.names(.),
+         var = 100*(Sum.Sq/sum(Sum.Sq)))
+
+to_plot1 <- plot_summs(m1, scale = TRUE)$data %>%
+  mutate(group = plyr::mapvalues(x = term,
+                            from = term,
+                            to = c("MCI", "AD",  "Age", "Gender")),
+         group = factor(group, levels = rev(unique(group))),
+         term = gsub("DX.*", "DX", term),
+         Significance = ifelse(p.value < 0.05, "p<0.05", "p>0.05"),
+         model = "PC1") %>%
+  full_join(mres1, by = "term")
+
+p <- ggplot(data = to_plot1, 
+            aes(x = group, y = estimate, colour = Significance,
+                ymin = conf.low, ymax = conf.high,
+                size = var)) +
+  geom_errorbar(size = 0.5, width = 0.1, position = position_dodge(width=0.5), color = "black") +
+  geom_point() +
+  geom_hline(yintercept = 0, linetype = "dashed", size = 0.3, color = "lightgray") +
+  scale_color_manual(values = c("red", "grey")) +
+  coord_flip()+
+  theme_classic() +
+  labs(size = "Variance explained (%)",
+       x = "",
+       y = "Regression Coefficient")
+ggsave(filename = "../AD_serum_lme_PC1_DX.pdf", plot = p, height = 4, width = 5)
+```
+
+# Session Info
+
+```{r}
+sessionInfo()
+```
+
