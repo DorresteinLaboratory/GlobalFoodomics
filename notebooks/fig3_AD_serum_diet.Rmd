@@ -35,6 +35,12 @@ ps <- readRDS(params$f_counts)
 
 # PCA of food counts
 
+Calculate alpha diversity
+
+```{r}
+adiv <- estimate_richness(rarefy_even_depth(ps, sample.size = min(sample_sums(ps)), rngseed = 39, trimOTUs = TRUE), measures = "Shannon")
+```
+
 Model CLR transformed data
 
 ```{r}
@@ -42,19 +48,38 @@ f_counts_mat <- as(ps@otu_table, "matrix")
 clr_mat <- mixOmics::logratio.transfo(f_counts_mat, offset = 1, logratio = "CLR")
 m <- mixOmics::pca(clr_mat, ncomp = 3, center = T, scale = T)
 df <- data.frame(m$variates$X, filename = m$names$sample, total_sum = rowSums(f_counts_mat), 
-                 unique_foods = apply(f_counts_mat, 1, function(x) {sum(x > 0)}))
+                 unique_foods = apply(f_counts_mat, 1, function(x) {sum(x > 0)}), Shannon = adiv$Shannon)
 df <- left_join(data.frame(ps@sam_data, stringsAsFactors = FALSE), df, by = "filename")
+# save axis titles
+x <- paste0("PC1", " [", round(m$explained_variance[1]*100, digits = 1), "%]")
+y <- paste0("PC2", " [", round(m$explained_variance[2]*100, digits = 1), "%]")
 ```
 
 Plot 
 
-```{r}
-p <- plot_ly(df, x = ~PC1, y = ~PC2, type = "scatter", mode = "markers", color = ~unique_foods,
-             marker = list(size = 10, width = 2, line = list(color = "black", width = 2))) %>%
-  layout(title = "PCA",
-         xaxis = list(title = paste0("PC1", " [", round(m$explained_variance[1]*100, digits = 1), "%]"), size = 18),
-         yaxis = list(title = paste0("PC2", " [", round(m$explained_variance[2]*100, digits = 1), "%]"), size = 18))
-htmlwidgets::saveWidget(p, file = "../AD_serum_PCA_CLR_allSamp_food_counts.html")
+```{r, echo=FALSE}
+Sys.setenv(RETICULATE_PYTHON = "/Users/kiana/anaconda3/bin/python3")
+library(reticulate)
+```
+
+```{python, results='hide'}
+from subprocess import call
+import json
+import plotly.graph_objects as go
+
+df = r.df
+x = r.x
+y = r.y
+
+p = go.Figure(go.Scatter(x = df['PC1'], y = df['PC2'], mode = 'markers',
+              marker = dict(color = df['Shannon'], colorscale = 'Viridis', showscale = True, opacity = 0.7,
+                            line = dict(color = 'black', width = 1))),
+              layout = go.Layout(plot_bgcolor='rgba(0,0,0,0)',
+              xaxis = dict(title = x), yaxis = dict(title = y)))
+p.add_hline(y = 0, line_width = 1, line_dash = 'dash', line_color = 'grey', opacity = 0.5)
+p.add_vline(x = 0, line_width = 1, line_dash = 'dash', line_color = 'grey', opacity = 0.5)
+
+p.write_image('../AD_serum_PCA_CLR_allSamp_food_counts.pdf')
 ```
 
 Which food groups are correlated to PC1?
@@ -66,11 +91,12 @@ to_plot <- tibble(food = row.names(cor_mat$r)[-1], r = cor_mat$r[-1,"PC1"], p = 
   mutate(fdr = p.adjust(p, method = "BH"),
          food = str_replace_all(food, 
                                 c("_L5" = "", "_" = " ", "fermented" = "(fermented)", " cow" = " (cow)", " chicken" = " (chicken)"))) %>%
-  filter(fdr < 0.05 & abs(r) > 0.2) %>%
+  filter(fdr < 0.05 & abs(r) > 0.3) %>%
   arrange(r) %>%
   mutate(food = as_factor(food))
-p <- ggbarplot(to_plot, x = "food", y = "r", fill = "#56B4E9") +
+p <- ggbarplot(to_plot, x = "food", y = "r", fill = "r") +
   labs(y = "Spearman (r)", x = "Food") +
+  scale_fill_viridis_c() +
   coord_flip() +
   geom_vline(xintercept = 0) +
   theme(legend.position = "none",
