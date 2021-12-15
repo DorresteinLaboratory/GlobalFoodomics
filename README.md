@@ -1,14 +1,11 @@
-# Global Foodomics
+# Global FoodOmics
 
-This repository contains code to generate the figures for the manuscript **Reference data based insights expand understanding of human metabolomes** by Gauglitz et al.
+> ## Abstract
+> Human untargeted metabolomics studies succeed in annotating only ~10% of molecular features. We, therefore, introduce reference data-driven analysis that uses the source data as a pseudo-MS/MS reference library to match against human metabolomics MS/MS data. We demonstrate this approach with food source data, allowing an empirical assessment of dietary patterns from untargeted data but is broadly applicable and provides an additional layer of interpretability to metabolomics data.
 
-> The human metabolome has remained largely unknown, with most studies annotating ~10% of features. In nucleic acid sequencing, annotating transcripts by source has proven essential for understanding gene function. Here we generalize this concept to stool, plasma, urine and other human metabolomes, discovering that food-based annotations increase the interpreted fraction of molecular features 7-fold, providing a general framework for expanding the interpretability of human metabolomic “dark matter.”
+This repository contains code to generate the figures associated with the following manuscript:
 
-## Overview
-
-- [Figure 1d](https://github.com/DorresteinLaboratory/GlobalFoodomics/blob/master/notebooks/fig1d_flow_food_type_hierarchy.ipynb): Summary of the spectra observed in plasma from a sleep deprivation study at hierarchical food ontology levels.
-- [Figure 2](https://github.com/DorresteinLaboratory/GlobalFoodomics/blob/master/notebooks/fig2_spectral_interpretation_rate.Rmd): Increases of MS/MS spectral match rates when using interpretive metabolomics at the data set level.
-- [Figure 3](https://github.com/DorresteinLaboratory/GlobalFoodomics/blob/master/notebooks/fig3_dietary_recommendation.ipynb): Using interpretive metabolomics to assess dietary recommendations at the study level.
+- Gauglitz et al. **Reference data-set driven metabolomics.** _Research Square_ (2021). [doi:10.21203/rs.3.rs-654519/v1](https://doi.org/10.21203/rs.3.rs-654519/v1)
 
 ## Contact
 
