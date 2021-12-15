@@ -114,7 +114,6 @@ df <- f_counts %>%
   rbind(f_counts_seedling) %>%
   left_join(select(metadata, Filename, Samplename), 
             by = c("filename" = "Filename")) %>%
-  select(-filename, -plant) %>% # look at non-plant foods
   mutate(Samplename = gsub("_inj.*", "", Samplename)) %>%
   group_by(Samplename) %>%
   summarise_all(mean) %>% # get mean of triplicates
@@ -124,9 +123,9 @@ df <- f_counts %>%
               summarise(Ratio_Tomato = unique(Ratio_Tomato),
                         biospecimen = unique(biospecimen),
                         tomato_seedling = mean(C18_polar))) %>%
-  mutate(total_counts = algae + animal + fungi + mineral + tomato_seedling) %>%
-  mutate_at(vars(algae, animal, fungi, mineral, tomato_seedling), list(~(. / total_counts)*100)) %>% # get proportions of each food group
-  pivot_longer(c("algae", "animal", "fungi", "mineral", "tomato_seedling"), 
+  mutate(total_counts = algae + animal + fungi + mineral + plant + tomato_seedling) %>%
+  mutate_at(vars(algae, animal, fungi, mineral, plant, tomato_seedling), list(~(. / total_counts)*100)) %>% # get proportions of each food group
+  pivot_longer(c("algae", "animal", "fungi", "mineral", "plant", "tomato_seedling"), 
                names_to = "food_group", values_to = "relative_abundance") %>%
   mutate(food_group = gsub("_", " ", food_group))
 ```
@@ -137,7 +136,7 @@ Plot
 p2 <- ggbarplot(df, x = "Ratio_Tomato", y = "relative_abundance", fill = "food_group", width = 0.5, lwd = 0.2,
                 ylab = "Proportion of spectral matches (%)",
                 xlab = "Proportion of biospecimen:seedling",
-                palette = c("dodgerblue", "wheat", "thistle", "chocolate", "palegreen3"))
+                palette = c("dodgerblue", "wheat", "thistle", "chocolate", "#A79B4D", "palegreen3"))
 p2 <- facet(p2, facet.by = "biospecimen", scales = "free", nrow = 1) +
   rotate_x_text(angle = 45) +
   theme(axis.text = element_text(size = 5),
