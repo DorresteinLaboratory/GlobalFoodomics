@@ -1,0 +1,146 @@
+---
+title: "Reference data-set driven metabolomics"
+subtitle: "Omnivore vs Vegetarian"
+author: "Kiana A West"
+date: "`r Sys.Date()`"
+params:
+  food_meta: "../data/11442_foodomics_multiproject_metadata.txt"
+  data: "../data/veg_vs_omnivore.RData"
+output: 
+  html_document:
+    toc: true
+    theme: cerulean
+---
+
+<style type="text/css">
+.main-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+***  
+
+Load packages
+
+```{r}
+pacman::p_load("phyloseq", "magrittr", "ggpubr", "plotly", "mixOmics", "tidyverse", "UpSetR")
+options(stringsAsFactors = FALSE)
+```
+
+Read in data
+
+```{r read_inputs}
+food_meta <- read_delim(params$food_meta, delim = "\t", guess_max = 3000)
+load(params$data)
+```
+
+# PCA
+
+```{r}
+f_counts_mat <- as(f_counts[,-1], "matrix") %>%
+  set_rownames(f_counts$filename)
+clr_mat <- logratio.transfo(f_counts_mat, offset = 1, logratio = "CLR")
+m <- pca(clr_mat, 
+         ncomp = 3, center = T, scale = T)
+df <- data.frame(m$variates$X, filename = m$names$sample, total_sum = rowSums(f_counts_mat), 
+                 unique_foods = apply(f_counts_mat, 1, function(x) {sum(x > 0)}))
+df <- left_join(meta, df, by = "filename")
+df$ID <- gsub("_.*", "", df$s)
+```
+
+Plot 
+
+```{r}
+p <- plot_ly(df, x = ~PC1, y = ~PC2, type = "scatter", mode = "markers", color = ~Diet_info,
+               colors = c("aquamarine3", "darkgoldenrod"),
+               marker = list(size = 10, width = 2, line = list(color = "black", width = 2), opacity = 0.8),
+               text = ~filename) %>%
+        layout(title = "PCA of food counts",
+               xaxis = list(title = paste0("PC1", " [", round(m$prop_expl_var$X[1]*100, digits = 1), "%]"), size = 18),
+               yaxis = list(title = paste0("PC2", " [", round(m$prop_expl_var$X[2]*100, digits = 1), "%]"), size = 18))
+htmlwidgets::saveWidget(p, file = "PCA_food_counts_colorBY_diet.html")
+```
+
+# Foods associated with each diet
+
+Transform to proportions
+
+```{r}
+f_counts_L5_norm <- f_counts_L5 %>%
+  dplyr::select(-filename) %>%
+  apply(1, function(x) {ifelse(x != 0, x/sum(x), 0)}) %>%
+  t() %>%
+  data.frame() %>%
+  mutate(filename = f_counts_L5$filename)
+```
+
+```{r}
+df <- left_join(df, f_counts_L5_norm, by = "filename")
+df$prep <- str_replace_all(df$s, c(".*veg_" = "", ".*omn_" = ""))
+```
+
+```{r}
+for (f in make.names(colnames(f_counts_L5)[-1])) {
+  p <- ggboxplot(df, x = "Diet_info", y = f, palette = c("aquamarine3", "darkgoldenrod"),
+                 xlab = FALSE, ylab = paste(str_replace_all(f, c("\\.fruit" = " fruit", "\\.herb" = "/herb")), "(%)"),
+                 add = "jitter", add.params = list(color = "Diet_info", alpha = 0.7, size = 1)) +
+    theme(legend.position = "none", axis.text.y = element_text(size = 5), axis.text.x = element_blank(), axis.ticks.x = element_blank(),
+          axis.title = element_text(size = 7)) +
+    stat_compare_means(comparisons = list(c("omnivore", "vegetarian")), size = 1.5)
+  assign(f, p)
+}
+```
+
+```{r}
+p <- ggarrange(dairy, meat, seafood, legume, fleshy.fruit, vegetable.herb)
+```
+
+```{r}
+ggsave(filename = "foods_associated_with_diets.pdf", plot = p, height = 3.5, width = 4)
+```
+
+Considering only unique features
+
+```{r}
+f_counts_L5_norm <- f_counts_L5_unique %>%
+  dplyr::select(-filename) %>%
+  apply(1, function(x) {ifelse(x != 0, x/sum(x), 0)}) %>%
+  t() %>%
+  data.frame() %>%
+  mutate(filename = f_counts_L5_unique$filename)
+```
+
+```{r}
+df <- left_join(meta, f_counts_L5_norm, by = "filename")
+df$prep <- str_replace_all(df$s, c(".*veg_" = "", ".*omn_" = ""))
+```
+
+```{r}
+for (f in make.names(colnames(f_counts_L5_unique)[-1])) {
+  p <- ggboxplot(df, x = "Diet_info", y = f, palette = c("aquamarine3", "darkgoldenrod"),
+                 xlab = FALSE, ylab = paste(str_replace_all(f, c("\\.fruit" = " fruit", "\\.herb" = "/herb")), "(%)"),
+                 add = "jitter", add.params = list(color = "Diet_info", alpha = 0.7, size = 1)) +
+    theme(legend.position = "none", axis.text.y = element_text(size = 5), axis.text.x = element_blank(), axis.ticks.x = element_blank(),
+          axis.title = element_text(size = 7)) +
+    stat_compare_means(comparisons = list(c("omnivore", "vegetarian")), size = 1.5)
+  assign(f, p)
+}
+
+p <- ggboxplot(df, x = "Diet_info", y = "shellfish", palette = c("aquamarine3", "darkgoldenrod"),
+               xlab = FALSE, ylab = "shellfish (%)",
+               add = "jitter", add.params = list(color = "Diet_info", alpha = 0.7, size = 1)) +
+  theme(legend.position = "none", axis.text.y = element_text(size = 5), axis.text.x = element_blank(), axis.ticks.x = element_blank(),
+        axis.title = element_text(size = 7)) +
+  ylim(c(0,0.01))
+assign("shellfish", p)
+```
+
+```{r}
+p <- ggarrange(cow, pig, fish_saltwater, shellfish, citrus, vegetable)
+```
+
+```{r}
+ggsave(filename = "foods_associated_with_diets_unique_features.pdf", plot = p, height = 3.5, width = 4)
+```
