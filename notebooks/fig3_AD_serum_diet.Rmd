@@ -1,6 +1,6 @@
 ---
-title: "Reference data based insights of human metabolomes"
-subtitle: "Figure 3"
+title: "Reference data-set driven metabolomics"
+subtitle: "Supplementary Figure 1"
 author: "Kiana A West"
 date: "`r Sys.Date()`"
 params:

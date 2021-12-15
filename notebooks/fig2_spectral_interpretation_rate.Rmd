@@ -1,5 +1,6 @@
 ---
-title: "Global FoodOmics reference sample interpretation"
+title: "Reference data-set driven metabolomics"
+subtitle: "Figure 2 c-d"
 authors: Julia M. Gauglitz, Candace Williams
 output: html_document
 ---
@@ -334,7 +335,7 @@ data_wTotal <-read.csv("../data/spectral_interpretation_rate.csv", header = TRUE
 
 Figure 2 generation
 ```{r}
-#library("onewaytests")
+library(onewaytests)
 library(rstatix)
 
 #Overall----
