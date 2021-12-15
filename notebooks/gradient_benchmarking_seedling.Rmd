@@ -1,0 +1,161 @@
+---
+title: "Reference data-set driven metabolomics"
+subtitle: "Gradient Benchmarking Dataset (tomato seedling)"
+author: "Kiana A West"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    theme: cerulean
+---
+
+<style type="text/css">
+.main-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+***  
+
+```{r, echo=FALSE}
+options(stringsAsFactors = FALSE)
+```
+
+Load packages
+
+```{r}
+pacman::p_load("magrittr", "ggpubr", "tidyverse", "rmcorr")
+```
+
+Read in (meta)data
+
+```{r}
+load("../data/gradient_benchmarking_seedling.RData")
+```
+
+How many spectra in common between biospecimens and reference samples?
+
+```{r}
+# 3 different chromatography
+## "C18 reference samples
+df <- subset(mol_net, grepl("C18_To_GA3_01_194", mol_net$UniqueFileSources))
+metadata$C18 <- unlist(lapply(metadata$Filename, function(x) { sum(grepl(x, df$UniqueFileSources)) }))
+## C18 RT shift reference samples
+df <- subset(mol_net, grepl("C18_To_GA3_01_195", mol_net$UniqueFileSources))
+metadata$C18_RTshift <- unlist(lapply(metadata$Filename, function(x) { sum(grepl(x, df$UniqueFileSources)) }))
+## C18 polar reference samples
+df <- subset(mol_net, grepl("C18polar_To_GA3_01", mol_net$UniqueFileSources))
+metadata$C18_polar <- unlist(lapply(metadata$Filename, function(x) { sum(grepl(x, df$UniqueFileSources)) }))
+```
+
+Format data for plotting
+
+```{r}
+# proportions for each biospecimen
+Fecal_1 <- c("100_0_0_0", "75_0_25_0", "50_0_50_0", "25_0_75_0")
+Fecal_2 <- c("0_100_0_0", "0_75_25_0", "0_50_50_0", "0_25_75_0")
+Serum <- c("0_0_0_100", "0_0_25_75", "0_0_50_50", "0_0_75_25")
+
+to_plot <- metadata %>%
+  filter(Proportions %in% c(Fecal_1, Fecal_2, Serum, "0_0_100_0"),
+         Experiment == "C18-polar") %>%
+  mutate(biospecimen = case_when(Proportions %in% Fecal_1 ~ "Fecal 1",
+                                 Proportions %in% Fecal_2 ~ "Fecal 2",
+                                 Proportions %in% Serum ~ "Serum",
+                                 Proportions == "0_0_100_0" ~ "Tomato seedling"),
+         Samplename = gsub("_inj.*", "", Samplename),
+         Ratio_Tomato = case_when(Proportion_Tomato == 0 ~ "100:0",
+                                  Proportion_Tomato == 25 ~ "75:25",
+                                  Proportion_Tomato == 50 ~ "50:50",
+                                  Proportion_Tomato == 75 ~ "25:75",
+                                  Proportion_Tomato == 100 ~ "0:100"),
+         Ratio_Tomato = factor(Ratio_Tomato, levels = c("100:0","75:25","50:50","25:75","0:100")))
+
+# add dummy data to connect lines to tomato sample
+to_plot <- rbind(select(to_plot, Samplename, Proportion_Tomato, Ratio_Tomato, C18_polar, biospecimen), 
+                 data.frame(Samplename = c(rep("fecal1_to", 3), rep("fecal2_to", 3), rep("serum_to", 3)),
+                            Proportion_Tomato = rep(100, 9),
+                            Ratio_Tomato = rep("0:100", 9),
+                            C18_polar = rep(to_plot$C18_polar[to_plot$biospecimen == "Tomato seedling"], 3),
+                            biospecimen = c(rep("Fecal 1", 3), rep("Fecal 2", 3), rep("Serum", 3))))
+```
+
+Calculate p-value using repeated measures correlation
+
+```{r}
+corr <- rmcorr(participant = "biospecimen", measure1 = "Proportion_Tomato", measure2 = "C18_polar", dataset = to_plot)
+p <- formatC(corr$p, format = "e", digits = 2)
+```
+
+Plot
+
+```{r}
+p1 <- ggline(to_plot,
+             x = "Ratio_Tomato", y = "C18_polar", group = "biospecimen",
+             color = "biospecimen", add = "mean_sd", add.params = list(width=0.05),
+             ylab = "Spectral matches with tomato seedling (n)",
+             xlab = "Proportion of biospecimen:seedling",
+             palette = c("#E69F00", "#56B4E9", "#009E73", "#000000")) +
+  theme(axis.text = element_text(size = 5),
+        axis.title = element_text(size = 7),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 7),
+        legend.key.size = unit(3, "mm")) +
+  # add pval
+  annotate(geom = "text", x = 1.5, y = 1000, label = paste("P = ", p), size = 3)
+```
+
+Check proportions of other foods as seedling proportion increases
+
+```{r}
+df <- f_counts %>%
+  rbind(f_counts_seedling) %>%
+  left_join(select(metadata, Filename, Samplename), 
+            by = c("filename" = "Filename")) %>%
+  select(-filename, -plant) %>% # look at non-plant foods
+  mutate(Samplename = gsub("_inj.*", "", Samplename)) %>%
+  group_by(Samplename) %>%
+  summarise_all(mean) %>% # get mean of triplicates
+  filter(Samplename %in% c(to_plot$Samplename, "qTOF_C18-polar_To")) %>%
+  left_join(to_plot %>% # add seedling counts
+              group_by(Samplename) %>%
+              summarise(Ratio_Tomato = unique(Ratio_Tomato),
+                        biospecimen = unique(biospecimen),
+                        tomato_seedling = mean(C18_polar))) %>%
+  mutate(total_counts = algae + animal + fungi + mineral + tomato_seedling) %>%
+  mutate_at(vars(algae, animal, fungi, mineral, tomato_seedling), list(~(. / total_counts)*100)) %>% # get proportions of each food group
+  pivot_longer(c("algae", "animal", "fungi", "mineral", "tomato_seedling"), 
+               names_to = "food_group", values_to = "relative_abundance") %>%
+  mutate(food_group = gsub("_", " ", food_group))
+```
+
+Plot
+
+```{r}
+p2 <- ggbarplot(df, x = "Ratio_Tomato", y = "relative_abundance", fill = "food_group", width = 0.5, lwd = 0.2,
+                ylab = "Proportion of spectral matches (%)",
+                xlab = "Proportion of biospecimen:seedling",
+                palette = c("dodgerblue", "wheat", "thistle", "chocolate", "palegreen3"))
+p2 <- facet(p2, facet.by = "biospecimen", scales = "free", nrow = 1) +
+  rotate_x_text(angle = 45) +
+  theme(axis.text = element_text(size = 5),
+        axis.title = element_text(size = 7),
+        legend.title = element_blank(),
+        legend.text = element_text(size = 7),
+        legend.key.size = unit(3, "mm"), 
+        strip.text = element_text(size = 6))
+```
+
+```{r, fig.align='center'}
+(p <- ggarrange(p1, p2, nrow = 1, labels = "auto"))
+ggsave("tomato_seedling_gradient.pdf", p, height = 4, width = 8)
+```
+
+## Session Info
+
+```{r, echo=FALSE}
+sessionInfo()
+```
+
