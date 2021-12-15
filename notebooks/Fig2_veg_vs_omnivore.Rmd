@@ -1,6 +1,6 @@
 ---
 title: "Reference data-set driven metabolomics"
-subtitle: "Omnivore vs Vegetarian"
+subtitle: "Figure 2 e-g, Omnivore vs Vegetarian"
 author: "Kiana A West"
 date: "`r Sys.Date()`"
 params:
